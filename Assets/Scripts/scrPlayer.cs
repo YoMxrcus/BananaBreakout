@@ -29,10 +29,12 @@ public class Player : MonoBehaviour
             rb.AddForce((new Vector2(0.0f, 300.0f)) * 1.5f);
             Debug.Log("Jump");
         }
-        while (Input.GetKeyDown(KeyCode.LeftShift))
+        if (stamina > 0f)
         {
-            if (stamina > 0)
-            {Sprint(); Debug.Log("sprint activated"); stamina--; }
+            if (Input.GetKey(KeyCode.LeftShift))
+            { Sprint(); Debug.Log("sprint activated"); stamina--; }
+            if (stamina <= 0f)
+            { EndSprint(); }
         }
     }
     void OnCollisionStay2D(Collision2D collision)
