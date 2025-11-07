@@ -3,7 +3,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
-    int speed = 5;
+    public int speed = 10;
+    public float stamina = 100f;
+
+    bool canSprint;
+    bool canJump;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,15 +19,36 @@ public class Player : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f);
+        Vector2 movement = new Vector2(moveHorizontal, 0.0f);
         rb.AddForce(movement * speed);//multiplies by speed to see how fast the player moves
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
-            Vector3 pos = transform.position;
-            //Vector3 playerPos = new Vector3(transform.position, pos.y + 5, 0);
+            rb.AddForce((new Vector2(0.0f, 300.0f)) * 1.5f);
+            Debug.Log("Jump");
         }
+        while (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (stamina > 0)
+            {Sprint(); Debug.Log("sprint activated"); stamina--; }
+        }
+    }
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        canJump = true;
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        canJump = false;
+    }
+    void Sprint()
+    {
+        speed = 20;
+    }
+    void EndSprint()
+    {
+        speed = 10;
     }
 }
