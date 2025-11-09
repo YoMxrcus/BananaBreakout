@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     public int speed = 10;
-    public float stamina = 100f;
+    public float stamina = 250f;
 
     bool canSprint;
     bool canJump;
@@ -33,9 +34,17 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift))
             { Sprint(); Debug.Log("sprint activated"); stamina--; }
-            if (stamina <= 0f)
+            else
             { EndSprint(); }
         }
+        if (stamina <= 0f)
+        { EndSprint(); }
+        if (Input.GetKey(KeyCode.LeftControl) && canJump)
+        {
+            //transform.localScale = new Vector2(1, 0.5f);
+            transform.position = new Vector2(transform.position.x, transform.position.y - 0.01f);
+        }
+
     }
     void OnCollisionStay2D(Collision2D collision)
     {
