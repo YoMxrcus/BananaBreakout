@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -6,13 +8,15 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     public int speed = 10;
     public float stamina = 250f;
+    private CapsuleCollider2D capsuleCollider;
+    private Vector2 capsuleColliderSize = new Vector2(0.5f, 1);
 
-    bool canSprint;
     bool canJump;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -39,11 +43,14 @@ public class Player : MonoBehaviour
         }
         if (stamina <= 0f)
         { EndSprint(); }
-        if (Input.GetKey(KeyCode.LeftControl) && canJump)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && canJump)
         {
-            //transform.localScale = new Vector2(1, 0.5f);
+            capsuleCollider.size = capsuleColliderSize;
+            transform.localScale = new Vector2(1, 0.5f); 
             transform.position = new Vector2(transform.position.x, transform.position.y - 0.01f);
+            Invoke("StopCrouch", 0.5f);
         }
+        
 
     }
     void OnCollisionStay2D(Collision2D collision)
@@ -61,5 +68,24 @@ public class Player : MonoBehaviour
     void EndSprint()
     {
         speed = 10;
+        if (stamina < 100)
+        { stamina+= 0.25f; }
+    }
+    void StopCrouch()
+    {
+        transform.localScale = new Vector2(1, 1);
+    }
+    void Launch()
+    {
+        rb.AddForce((new Vector2(1000.0f, 300.0f)) * 1.5f);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        switch (other.tag)
+        {
+            case "slingshot":
+                Invoke("Launch", 1);
+                break;
+        }
     }
 }
