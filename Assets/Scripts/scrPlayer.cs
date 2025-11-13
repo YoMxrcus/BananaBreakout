@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -73,5 +74,18 @@ public class Player : MonoBehaviour
     void StopCrouch()
     {
         transform.localScale = new Vector2(1, 1);
+    }
+    void Launch()
+    {
+        rb.AddForce((new Vector2(1000.0f, 300.0f)) * 1.5f);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        switch (other.tag)
+        {
+            case "slingshot":
+                Invoke("Launch", 1);
+                break;
+        }
     }
 }
