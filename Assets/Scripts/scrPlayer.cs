@@ -48,7 +48,9 @@ public class Player : MonoBehaviour
             capsuleCollider.size = capsuleColliderSize;
             transform.localScale = new Vector2(1, 0.5f); 
             transform.position = new Vector2(transform.position.x, transform.position.y - 0.01f);
-            Invoke("StopCrouch", 0.5f);
+            rb.AddForce((new Vector2(250.0f, 0.0f)) * 1.5f);
+            Invoke("StopSlide", 0.5f);
+
         }
         
 
@@ -71,12 +73,14 @@ public class Player : MonoBehaviour
         if (stamina < 100)
         { stamina+= 0.25f; }
     }
-    void StopCrouch()
+    void StopSlide()
     {
         transform.localScale = new Vector2(1, 1);
+        speed = 10;
     }
     void Launch()
     {
+
         rb.AddForce((new Vector2(1000.0f, 300.0f)) * 1.5f);
     }
     private void OnTriggerEnter2D(Collider2D other)

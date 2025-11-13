@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 1413890261}
   - component: {fileID: 1413890260}
   m_Layer: 0
-  m_Name: ww
+  m_Name: right
   m_TagString: slingshot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1073,7 +1073,7 @@ GameObject:
   - component: {fileID: 1910905598}
   - component: {fileID: 1910905600}
   m_Layer: 0
-  m_Name: ww (1)
+  m_Name: left
   m_TagString: slingshot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
