@@ -1,7 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     private CapsuleCollider2D capsuleCollider;
     private Vector2 capsuleColliderSize = new Vector2(0.5f, 1);
     bool canJump;
+
+    public Slider staminaBar;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,9 +40,9 @@ public class Player : MonoBehaviour
         if (stamina > 0f)
         {
             if (Input.GetKey(KeyCode.LeftShift))
-            { Sprint(); stamina--; }
+            { Sprint(); stamina--; staminaBar.value = stamina; }
             else
-            { EndSprint(); }
+            { EndSprint(); staminaBar.value = stamina; }
         }
         if (stamina <= 0f)
         { EndSprint(); }
