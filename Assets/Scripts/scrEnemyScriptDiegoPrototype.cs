@@ -17,29 +17,5 @@ public class scrEnemyScriptDiegoPrototype : MonoBehaviour
     {
 
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        switch (other.tag)
-        {
-            case "Gorilla":
-                EnemyHealth = 150;
-              //PlayerHealth -= 50;
-                break;
-
-            case "Crocodile":
-                EnemyHealth = 75;
-
-                break;
-
-            case "Snake":
-                EnemyHealth = 40;
-
-                break;
-
-            case "Poacher":
-                EnemyHealth = 100;
-
-                break;
-        }
-    }
+   
 }
