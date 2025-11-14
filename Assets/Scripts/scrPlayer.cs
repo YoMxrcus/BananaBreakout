@@ -7,11 +7,11 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     public int speed = 10;
-    public float stamina = 250f;
+    public float stamina = 100f;
     private CapsuleCollider2D capsuleCollider;
     private Vector2 capsuleColliderSize = new Vector2(0.5f, 1);
-
     bool canJump;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         if (stamina > 0f)
         {
             if (Input.GetKey(KeyCode.LeftShift))
-            { Sprint(); Debug.Log("sprint activated"); stamina--; }
+            { Sprint(); stamina--; }
             else
             { EndSprint(); }
         }
@@ -84,6 +84,7 @@ public class Player : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.AddForce((new Vector2(1000.0f, 300.0f)) * 1.5f);
     }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         switch (other.tag)
