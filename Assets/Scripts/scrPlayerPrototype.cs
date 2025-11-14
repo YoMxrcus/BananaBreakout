@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class scrPlayerPrototype : MonoBehaviour
 {
-    public float PlayerHealth = 100;
+    public int PlayerHealth = 100;
 
     public string currentPowerUp = "";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,7 +38,7 @@ public class scrPlayerPrototype : MonoBehaviour
                 break;
 
             case "Water":
-                //PlayerHealth == 0;
+                PlayerHealth = 0;
                 break;
 
             case "Boulders":
@@ -49,7 +49,5 @@ public class scrPlayerPrototype : MonoBehaviour
                 break;
         }
     }
-
-    //void PowerUpTimer;
 
 }
