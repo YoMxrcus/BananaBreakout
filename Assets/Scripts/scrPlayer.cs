@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
     }
     void Sprint()
     {
-        speed = 20;
+        speed = 15;
     }
     void EndSprint()
     {
@@ -80,7 +80,8 @@ public class Player : MonoBehaviour
     }
     void Launch()
     {
-
+        rb.constraints = RigidbodyConstraints2D.None;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.AddForce((new Vector2(1000.0f, 300.0f)) * 1.5f);
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -88,6 +89,7 @@ public class Player : MonoBehaviour
         switch (other.tag)
         {
             case "slingshot":
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 Invoke("Launch", 1);
                 break;
         }
