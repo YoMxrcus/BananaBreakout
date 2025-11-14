@@ -24,7 +24,7 @@ public class scrPlayerPrototype : MonoBehaviour
             case "ThornWalls":
                 if (currentPowerUp == "Durian")
                 {
-                    PlayerHealth;
+                    //PlayerHealth;
                 }
 
                 else
@@ -38,7 +38,7 @@ public class scrPlayerPrototype : MonoBehaviour
                 break;
 
             case "Water":
-                PlayerHealth == 0;
+                //PlayerHealth == 0;
                 break;
 
             case "Boulders":
