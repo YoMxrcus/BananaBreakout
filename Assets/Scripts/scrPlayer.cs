@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     bool canMove = true;
     public int playerHealth = 5;
     public Slider staminaBar;
+    public GameObject slingshot;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -59,11 +60,10 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl) && canJump)
         {
             capsuleCollider.size = capsuleColliderSize;
-            transform.localScale = new Vector2(1, 0.5f); 
-            transform.position = new Vector2(transform.position.x, transform.position.y - 0.01f);
+            transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y); 
+            //transform.position = new Vector2(transform.position.x, transform.position.y - 0.01f);
             rb.AddForce((new Vector2(250.0f, 0.0f)) * 1.5f);
             Invoke("StopSlide", 0.5f);
-
         }
         
 
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
     }
     void StopSlide()
     {
-        transform.localScale = new Vector2(1, 1);
+        //transform.localScale = new Vector2(1, 1);
         speed = 10;
     }
     void Launch()
@@ -97,8 +97,6 @@ public class Player : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.AddForce((new Vector2(1000.0f, 300.0f)) * 1.5f);
         canMove = true;
-        
-
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -108,7 +106,10 @@ public class Player : MonoBehaviour
             case "slingshot":
                 Debug.Log("hit");
                 canMove = false;
-                rb.constraints = RigidbodyConstraints2D.FreezePositionY; 
+                rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+                Destroy(other.gameObject);
+                Vector2 pos = new Vector2(transform.position.x + 1f, transform.position.y - 2f);
+                GameObject instance = Instantiate(slingshot, pos, Quaternion.Euler(0, 0, -2.932f));
                 Invoke("Launch", 1);
                 break;
 
