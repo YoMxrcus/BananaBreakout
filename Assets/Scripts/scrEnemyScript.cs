@@ -16,7 +16,7 @@ public class scrEnemyScript : MonoBehaviour
     #region Private Variables
     private RaycastHit2D hit;
     private GameObject target;
-    private Animator animator;
+    //private Animator animator;
     private float distance; //store distance between enemy and player
     private bool attackMode;
     private bool inRange; //See if player in range
@@ -27,7 +27,7 @@ public class scrEnemyScript : MonoBehaviour
     void Awake()
     {
         intTimer = timer;
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +37,7 @@ public class scrEnemyScript : MonoBehaviour
         {
             hit = Physics2D.Raycast(rayCast.position, Vector2.left, rayCastLength, raycastMask);
             RaycastDebugger();
+            Debug.Log("In Range");
         }
 
         //When player is detected
@@ -51,7 +52,7 @@ public class scrEnemyScript : MonoBehaviour
 
         if (inRange == false)
         {
-            animator.SetBool("Run", false);
+            //animator.SetBool("Run", false);
             StopAttack();
         }
     }
@@ -82,21 +83,21 @@ public class scrEnemyScript : MonoBehaviour
         if (cooling)
         {
             Cooldown();
-            animator.SetBool("Attack", false);
+            //animator.SetBool("Attack", false);
         }
     }
 
     void Move()
     {
-        animator.SetBool("Run", true);
+        //animator.SetBool("Run", true);
 
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("enemy1Attack"))
+        /*if (!animator.GetCurrentAnimatorStateInfo(0).IsName("enemy1Attack"))
         {
             Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
 
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-        }
+        }*/
     }
 
     void Attack()
@@ -104,8 +105,8 @@ public class scrEnemyScript : MonoBehaviour
         timer = intTimer;
         attackMode = true;
 
-        animator.SetBool("Run", false);
-        animator.SetBool("Attack", true);
+        //animator.SetBool("Run", false);
+        //animator.SetBool("Attack", true);
     }
 
     void Cooldown()
@@ -123,7 +124,7 @@ public class scrEnemyScript : MonoBehaviour
     {
         cooling = false;
         attackMode = false;
-        animator.SetBool("Attack", false);
+        //animator.SetBool("Attack", false);
     }
 
     void RaycastDebugger()
