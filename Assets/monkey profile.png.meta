@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      monkey profile_0: -1912305917753420484
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

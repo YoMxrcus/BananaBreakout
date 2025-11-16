@@ -58,16 +58,19 @@ public class Player : MonoBehaviour
             { EndSprint(); staminaBar.value = stamina; }
         }
         if (stamina <= 0f)
-        { EndSprint(); }
+            { EndSprint(); }
+
         if (Input.GetKeyDown(KeyCode.LeftControl) && canJump)
         {
+            { transform.rotation = Quaternion.Euler(0, 0, 90); }//kinda broken bc left/right movement overrides
             rb.AddForce((new Vector2(250.0f, 1.0f)) * 1.5f);
             Invoke("StopSlide", 0.5f);
         }
         if (Input.GetKey(KeyCode.A))
-        {transform.rotation = Quaternion.Euler(0,180,0);}
+            {transform.rotation = Quaternion.Euler(0,180,0);}
+
         if (Input.GetKey(KeyCode.D))
-        {transform.rotation = Quaternion.Euler(0, 0, 0);}
+            {transform.rotation = Quaternion.Euler(0, 0, 0);}
 
 
 
@@ -92,7 +95,7 @@ public class Player : MonoBehaviour
     }
     void StopSlide()
     {
-        //transform.localScale = new Vector2(1, 1);
+        { transform.rotation = Quaternion.Euler(0, 0, 0); }
         speed = 10;
     }
     void Launch()
@@ -111,7 +114,7 @@ public class Player : MonoBehaviour
         {
             case "slingshot":
                 canMove = false;
-                rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+                rb.constraints = RigidbodyConstraints2D.FreezePosition;
                 Destroy(other.gameObject);
                 Vector2 pos = new Vector2(transform.position.x + 1f, transform.position.y - 2f);
                 GameObject instance = Instantiate(slingshot, pos, Quaternion.Euler(0, 0, -2.932f));
