@@ -1995,7 +1995,6 @@ GameObject:
   - component: {fileID: 1852640894}
   - component: {fileID: 1852640893}
   - component: {fileID: 1852640895}
-  - component: {fileID: 1852640896}
   - component: {fileID: 1852640897}
   m_Layer: 0
   m_Name: testPlayer
@@ -2101,43 +2100,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &1852640896
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852640891}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
 --- !u!114 &1852640897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2192,7 +2154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: dc56e7f4093bb5741a877ff1664c3e17, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.55
+      value: -3.87
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: dc56e7f4093bb5741a877ff1664c3e17, type: 3}
       propertyPath: m_LocalPosition.z
