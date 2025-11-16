@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class scrPlayerPrototype : MonoBehaviour
 {
-    public float PlayerHealth = 100;
-
+    public int playerHealth = 100;
+    public int speed = 10;
     public string currentPowerUp = "";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,24 +26,25 @@ public class scrPlayerPrototype : MonoBehaviour
             case "ThornWalls":
                 if (currentPowerUp == "Durian")
                 {
-                    PlayerHealth;
+                    break;
                 }
-
-                else
-                {
-                    PlayerHealth -= 10;    
-                }
+                    playerHealth -= 10;
+                    GameObject.Find("GameManager").GetComponent<scrGameManager>().UpdateData(playerHealth);
                 break;
 
             case "SpikeStakes":
-                PlayerHealth -= 30;
+                playerHealth -= 30;
+                GameObject.Find("GameManager").GetComponent<scrGameManager>().UpdateData(playerHealth);
                 break;
-
+            //Acts as a deathplane
             case "Water":
-                PlayerHealth == 0;
+                playerHealth = 0;
+                GameObject.Find("GameManager").GetComponent<scrGameManager>().UpdateData(playerHealth);
+                GameObject.Find("GameManager").GetComponent<scrGameManager>().HandleGameOver();
                 break;
 
             case "Boulders":
+            //Allows the player to break obstacles with the egg power up
             if (currentPowerUp == "Eggs")
                 {
                     other.gameObject.SetActive(false);
