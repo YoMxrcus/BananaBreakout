@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     bool canJump;
     bool canMove = true;
     public int playerHealth = 5;
-
     public Slider staminaBar;
 
 
@@ -22,6 +21,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        staminaBar.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
