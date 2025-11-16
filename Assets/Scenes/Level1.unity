@@ -1808,7 +1808,7 @@ RectTransform:
   m_GameObject: {fileID: 474279062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6939372, y: 0.6939372, z: 0.6939372}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1963351706}
@@ -1816,7 +1816,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 812, y: 422}
+  m_AnchoredPosition: {x: 837, y: 422}
   m_SizeDelta: {x: 286.7061, y: 210.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &474279064
@@ -8385,6 +8385,9 @@ MonoBehaviour:
   playerHealth: 5
   staminaBar: {fileID: 1710538729}
   slingshot: {fileID: 0}
+  sound: {fileID: 0}
+  slingshotSound: {fileID: 0}
+  strechSound: {fileID: 0}
 --- !u!212 &1937027613
 SpriteRenderer:
   m_ObjectHideFlags: 0
