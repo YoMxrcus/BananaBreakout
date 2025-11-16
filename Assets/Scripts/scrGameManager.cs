@@ -6,6 +6,8 @@ public class scrGameManager : MonoBehaviour
 {
     public TMP_Text txtPlayerHealth;
     public GameObject gameOver, youWin;
+    AudioSource sound;
+    public AudioClip winSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,6 +26,12 @@ public class scrGameManager : MonoBehaviour
         gameOver.SetActive(true);
         //stops player movement
         GameObject.Find("Player").GetComponent<Player>().speed = 0;
+        if (GameObject.Find("Player").GetComponent<Player>().playerHealth == 0)
+        {
+            //Lose stuff
+        }
+        sound.PlayOneShot(winSound);
+
     }
 
     public void UpdateData(int hp)
