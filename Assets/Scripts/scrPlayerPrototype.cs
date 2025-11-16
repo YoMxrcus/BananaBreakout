@@ -7,7 +7,6 @@ public class scrPlayerPrototype : MonoBehaviour
     //Player variables
     public int playerHealth = 100;
     public int speed = 10;
-    public int PlayerHealth = 100;
     public int playerDamage = 30;
 
     //Powerup detection variables
@@ -25,7 +24,10 @@ public class scrPlayerPrototype : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            //Player throws a punch if they are in range of an enemy
+        }
     }
 
     public void OnTriggerEnter(Collider other)
