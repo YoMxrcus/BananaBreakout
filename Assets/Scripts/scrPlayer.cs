@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     private CapsuleCollider2D capsuleCollider;
     private Vector2 capsuleColliderSize = new Vector2(0.5f, 1);
     bool canJump;
+    bool canMove = true;
+    public int playerHealth = 5;
 
     public Slider staminaBar;
 
@@ -25,10 +27,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
+        if (canMove)
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
-        Vector2 movement = new Vector2(moveHorizontal, 0.0f);
-        rb.AddForce(movement * speed);//multiplies by speed to see how fast the player moves
+            Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime;
+            transform.position += movement;
+            /*float moveHorizontal = Input.GetAxis("Horizontal");
+
+            Vector2 movement = new Vector2(moveHorizontal, 0.0f);
+            rb.AddForce(movement * speed);//multiplies by speed to see how fast the player moves*/
+        }
     }
     private void Update()
     {
@@ -86,6 +96,9 @@ public class Player : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.AddForce((new Vector2(1000.0f, 300.0f)) * 1.5f);
+        canMove = true;
+        
+
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -93,8 +106,14 @@ public class Player : MonoBehaviour
         switch (other.tag)
         {
             case "slingshot":
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+                Debug.Log("hit");
+                canMove = false;
+                rb.constraints = RigidbodyConstraints2D.FreezePositionY; 
                 Invoke("Launch", 1);
+                break;
+
+            case "enemy":
+                playerHealth--;
                 break;
         }
     }

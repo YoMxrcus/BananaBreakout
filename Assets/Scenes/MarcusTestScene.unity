@@ -1698,6 +1698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   stamina: 100
+  playerHealth: 0
   staminaBar: {fileID: 239125201}
 --- !u!1 &2103104657
 GameObject:
@@ -1845,6 +1846,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: slingshot
       objectReference: {fileID: 0}
+    - target: {fileID: 528429678432676802, guid: 8c317342ee873694193d6bc1a3e47c61, type: 3}
+      propertyPath: m_TagString
+      value: slingshot
+      objectReference: {fileID: 0}
     - target: {fileID: 3112817819714660254, guid: 8c317342ee873694193d6bc1a3e47c61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.95
@@ -1884,6 +1889,22 @@ PrefabInstance:
     - target: {fileID: 3112817819714660254, guid: 8c317342ee873694193d6bc1a3e47c61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540278109821203329, guid: 8c317342ee873694193d6bc1a3e47c61, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3102201
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540278109821203329, guid: 8c317342ee873694193d6bc1a3e47c61, type: 3}
+      propertyPath: m_Size.y
+      value: 2.1537411
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540278109821203329, guid: 8c317342ee873694193d6bc1a3e47c61, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.011931562
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540278109821203329, guid: 8c317342ee873694193d6bc1a3e47c61, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.010366979
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

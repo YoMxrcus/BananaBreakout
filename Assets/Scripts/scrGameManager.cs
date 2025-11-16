@@ -23,11 +23,11 @@ public class scrGameManager : MonoBehaviour
         //displays end game panel
         gameOver.SetActive(true);
         //stops player movement
-        GameObject.Find("Player").GetComponent<scrPlayerPrototype>().speed = 0;
+        GameObject.Find("Player").GetComponent<Player>().speed = 0;
     }
 
     public void UpdateData(int hp)
     {
-        txtPlayerHealth.text = "Health: " + GameObject.Find("Player").GetComponent<scrPlayerPrototype>().playerHealth;
+        txtPlayerHealth.text = "Health: " + GameObject.Find("Player").GetComponent<Player>().playerHealth;
     }
 }
