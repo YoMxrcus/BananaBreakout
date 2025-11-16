@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public int playerHealth = 5;
     public Slider staminaBar;
     public GameObject slingshot;
+    public AudioSource sound;
+    public AudioClip slingshotSound, strechSound;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -59,13 +61,15 @@ public class Player : MonoBehaviour
         { EndSprint(); }
         if (Input.GetKeyDown(KeyCode.LeftControl) && canJump)
         {
-            capsuleCollider.size = capsuleColliderSize;
-            transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y); 
-            //transform.position = new Vector2(transform.position.x, transform.position.y - 0.01f);
-            rb.AddForce((new Vector2(250.0f, 0.0f)) * 1.5f);
+            rb.AddForce((new Vector2(250.0f, 1.0f)) * 1.5f);
             Invoke("StopSlide", 0.5f);
         }
-        
+        if (Input.GetKey(KeyCode.A))
+        {transform.rotation = Quaternion.Euler(0,180,0);}
+        if (Input.GetKey(KeyCode.D))
+        {transform.rotation = Quaternion.Euler(0, 0, 0);}
+
+
 
     }
     void OnCollisionStay2D(Collision2D collision)
@@ -96,6 +100,8 @@ public class Player : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.AddForce((new Vector2(1000.0f, 300.0f)) * 1.5f);
+        sound.Stop();
+        sound.PlayOneShot(slingshotSound);
         canMove = true;
     }
     
@@ -104,13 +110,13 @@ public class Player : MonoBehaviour
         switch (other.tag)
         {
             case "slingshot":
-                Debug.Log("hit");
                 canMove = false;
                 rb.constraints = RigidbodyConstraints2D.FreezePositionY;
                 Destroy(other.gameObject);
                 Vector2 pos = new Vector2(transform.position.x + 1f, transform.position.y - 2f);
                 GameObject instance = Instantiate(slingshot, pos, Quaternion.Euler(0, 0, -2.932f));
-                Invoke("Launch", 1);
+                sound.PlayOneShot(strechSound);
+                Invoke("Launch", 2f);
                 break;
 
             case "enemy":
