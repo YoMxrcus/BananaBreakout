@@ -23,7 +23,7 @@ public class scrMainMenu : MonoBehaviour
     }
     public void StartBtn()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("LevelUno");
     }
     public void HelpBtn()
     {
