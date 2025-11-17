@@ -37,7 +37,6 @@ public class scrEnemyScript : MonoBehaviour
         {
             hit = Physics2D.Raycast(rayCast.position, Vector2.left, rayCastLength, raycastMask);
             RaycastDebugger();
-            Debug.Log("In Range");
         }
 
         //When player is detected
