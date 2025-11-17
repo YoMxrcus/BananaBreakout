@@ -19,9 +19,9 @@ public class scrPlayer : MonoBehaviour
     public AudioSource sound;
     public AudioClip slingshotSound, strechSound;
     public GameObject panPause;
+    public GameObject gameOver;
 
     public TMP_Text txtPlayerHealth;
-    public GameObject gameOver;
 
     //Powerup detection variables
     public string currentPowerUp = "";
@@ -33,6 +33,7 @@ public class scrPlayer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         staminaBar.gameObject.SetActive(true);
         panPause.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -151,9 +152,9 @@ public class scrPlayer : MonoBehaviour
         //stops player movement
         Time.timeScale = 0;
     }
-    public void UpdateData(int hp)
+    public void UpdateData()
     {
-        txtPlayerHealth.text = "Health: " + lives;
+        txtPlayerHealth.text = "X: " + lives;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -171,6 +172,7 @@ public class scrPlayer : MonoBehaviour
 
             case "enemy":
                 lives--;
+                UpdateData();
                 if (lives == 0)
                 {
                     HandleGameOver();
@@ -193,6 +195,7 @@ public class scrPlayer : MonoBehaviour
 
                 //Damages players health by 1 when touched
                 lives --;
+                UpdateData();
                 if (lives == 0)
                 {
                     HandleGameOver();
@@ -202,6 +205,7 @@ public class scrPlayer : MonoBehaviour
             //Damages players health by 30 when touched
             case "SpikeStakes":
                 lives --;
+                UpdateData();
                 if (lives == 0)
                 {
                     HandleGameOver();
@@ -211,6 +215,7 @@ public class scrPlayer : MonoBehaviour
             //Acts as a deathplane
             case "Water":
                 lives = 0;
+                UpdateData();
                 HandleGameOver();
                 break;
 
@@ -259,6 +264,7 @@ public class scrPlayer : MonoBehaviour
                 if (lives < 100)
                 {
                     lives ++;
+                    UpdateData();
                 }
                 break;
         }
