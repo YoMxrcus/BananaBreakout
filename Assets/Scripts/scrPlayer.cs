@@ -17,7 +17,7 @@ public class scrPlayer : MonoBehaviour
     public Slider staminaBar;
     public GameObject slingshot;
     public AudioSource sound;
-    public AudioClip slingshotSound, strechSound;
+    public AudioClip slingshotSound, strechSound, monkeySound1, monkeySound2, monkeySound3, monkeySound4;
     public GameObject panPause;
     public GameObject gameOver;
     int eggs;
@@ -64,6 +64,7 @@ public class scrPlayer : MonoBehaviour
         {
             rb.AddForce((new Vector2(0.0f, 250)) * 1.5f);
             Debug.Log("Jump");
+            
         }
         if (stamina > 0f)
         {
@@ -202,6 +203,7 @@ public class scrPlayer : MonoBehaviour
             case "enemy":
                 if (!isInvincible) 
                 {
+                    sound.PlayOneShot(monkeySound3);
                     lives--;
                 } 
                 UpdateData();
@@ -274,6 +276,8 @@ public class scrPlayer : MonoBehaviour
 
             case "Eggs":
                 //Increases players damage by 30
+                sound.PlayOneShot(monkeySound1);
+
                 eggs++;
                 UpdateData();
                 Destroy(other.gameObject);
@@ -296,6 +300,7 @@ public class scrPlayer : MonoBehaviour
                 break;
 
             case "Banana":
+                sound.PlayOneShot(monkeySound2);
                 banana++;
                 Destroy(other.gameObject);
                 //Increases players health by 10 if they're not at 100 already
