@@ -20,8 +20,11 @@ public class scrPlayer : MonoBehaviour
     public AudioClip slingshotSound, strechSound;
     public GameObject panPause;
     public GameObject gameOver;
-
+    int eggs;
     public TMP_Text txtPlayerHealth;
+    public TMP_Text txtEggs;
+    public bool isInvincible;
+
 
     //Powerup detection variables
     public string currentPowerUp = "";
@@ -34,6 +37,7 @@ public class scrPlayer : MonoBehaviour
         staminaBar.gameObject.SetActive(true);
         panPause.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
+        isInvincible = false;
     }
 
     // Update is called once per frame
@@ -83,7 +87,10 @@ public class scrPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            //Player throws a punch if they are in range of an enemy
+            eggs--;
+            isInvincible = true;
+            UpdateData();
+            Invoke("EndInvincibility", 5f);
         }
     }
         void OnCollisionStay2D(Collision2D collision)
@@ -103,6 +110,10 @@ public class scrPlayer : MonoBehaviour
             speed = 10;
             if (stamina < 100)
             { stamina += 0.25f; }
+        }
+        void EndInvincibility()
+        {
+            isInvincible = false;
         }
         void StopSlide()
         {
@@ -155,7 +166,9 @@ public class scrPlayer : MonoBehaviour
     public void UpdateData()
     {
         txtPlayerHealth.text = "X: " + lives;
+        txtEggs.text = "" + eggs;
     }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         switch (other.tag)
@@ -171,7 +184,10 @@ public class scrPlayer : MonoBehaviour
                 break;
 
             case "enemy":
-                lives--;
+                if (!isInvincible) 
+                {
+                    lives--;
+                } 
                 UpdateData();
                 if (lives == 0)
                 {
@@ -242,12 +258,16 @@ public class scrPlayer : MonoBehaviour
 
             case "Eggs":
                 //Increases players damage by 30
-                if (!isPoweredUp)
+                eggs++;
+                UpdateData();
+                Destroy(other.gameObject);
+                /*if (!isPoweredUp)
                 {
                     isPoweredUp = true;
                     currentPowerUp = "Eggs";
                     playerDamage += 1;
                 }
+                */
                 break;
 
             case "Bongos":
