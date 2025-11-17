@@ -18956,7 +18956,7 @@ MonoBehaviour:
   txtPlayerHealth: {fileID: 1787852260}
   gameOver: {fileID: 0}
   youWin: {fileID: 0}
-  winSound: {fileID: 0}
+  winSound: {fileID: 8300000, guid: 7cba867c5abc78540b5cee66c6625d3f, type: 3}
 --- !u!4 &2106124226
 Transform:
   m_ObjectHideFlags: 0

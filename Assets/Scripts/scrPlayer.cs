@@ -148,6 +148,11 @@ public class scrPlayer : MonoBehaviour
                 lives--;
                 break;
 
+            case "Finish":
+                Time.timeScale = 0;
+                SceneManager.LoadScene("win");
+                break;
+
             //////////////////////// HAZARDS ////////////////////////
 
             case "ThornWalls":
