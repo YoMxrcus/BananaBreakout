@@ -9,8 +9,6 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     public int speed = 10;
     public float stamina = 100f;
-    private CapsuleCollider2D capsuleCollider;
-    private Vector2 capsuleColliderSize = new Vector2(0.5f, 1);
     bool canJump;
     bool canMove = true;
     public int playerHealth = 5;
@@ -25,7 +23,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        capsuleCollider = GetComponent<CapsuleCollider2D>();
         staminaBar.gameObject.SetActive(true);
         panPause.gameObject.SetActive(false);
     }
@@ -50,7 +47,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
-            rb.AddForce((new Vector2(0.0f, 300.0f)) * 1.5f);
+            rb.AddForce((new Vector2(0.0f, 250)) * 1.5f);
             Debug.Log("Jump");
         }
         if (stamina > 0f)
@@ -66,7 +63,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl) && canJump)
         {
             { transform.rotation = Quaternion.Euler(0, 0, 90); }//kinda broken bc left/right movement overrides
-            rb.AddForce((new Vector2(250.0f, 1.0f)) * 1.5f);
+            rb.AddForce((new Vector2(125.0f, 0.0f)) * 1.5f);
             Invoke("StopSlide", 0.5f);
         }
         if (Input.GetKey(KeyCode.A))
