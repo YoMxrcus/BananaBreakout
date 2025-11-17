@@ -37,4 +37,8 @@ public class scrMainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Credits");
     }
+    public void Nextbtn()
+    {
+        SceneManager.LoadScene("Level2");
+    }
 }
