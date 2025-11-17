@@ -11,13 +11,17 @@ public class Player : MonoBehaviour
     public float stamina = 100f;
     bool canJump;
     bool canMove = true;
-    public int playerHealth = 5;
+    public int lives = 5;
+    public int playerDamage = 1;
     public Slider staminaBar;
     public GameObject slingshot;
     public AudioSource sound;
     public AudioClip slingshotSound, strechSound;
     public GameObject panPause;
 
+    //Powerup detection variables
+    public string currentPowerUp = "";
+    bool isPoweredUp = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -72,8 +76,10 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             {transform.rotation = Quaternion.Euler(0, 0, 0);}
 
-
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            //Player throws a punch if they are in range of an enemy
+        }
     }
     void OnCollisionStay2D(Collision2D collision)
     {
@@ -139,7 +145,83 @@ public class Player : MonoBehaviour
                 break;
 
             case "enemy":
-                playerHealth--;
+                lives--;
+                break;
+
+            //////////////////////// HAZARDS ////////////////////////
+
+            case "ThornWalls":
+                //Does no damage to player if the durian power up is active
+                if (currentPowerUp == "Durian")
+                {
+                    break;
+                }
+
+                //Damages players health by 1 when touched
+                lives --;
+                GameObject.Find("GameManager").GetComponent<scrGameManager>().UpdateData(lives);
+                break;
+
+            //Damages players health by 30 when touched
+            case "SpikeStakes":
+                lives --;
+                GameObject.Find("GameManager").GetComponent<scrGameManager>().UpdateData(lives);
+                break;
+
+            //Acts as a deathplane
+            case "Water":
+                lives = 0;
+                GameObject.Find("GameManager").GetComponent<scrGameManager>().UpdateData(lives);
+                GameObject.Find("GameManager").GetComponent<scrGameManager>().HandleGameOver();
+                break;
+
+            case "Boulders":
+                //Allows the player to break obstacles with the egg power up
+                if (currentPowerUp == "Eggs")
+                {
+                    other.gameObject.SetActive(false);
+                }
+                //Blocks the players path if they don't have the egg power up
+                break;
+
+            //////////////////////// POWERUPS ////////////////////////
+
+            case "Durian":
+                //Increases players damage by 10
+                if (!isPoweredUp)
+                {
+                    isPoweredUp = true;
+                    currentPowerUp = "Durian";
+                    playerDamage += 1;
+                }
+                break;
+
+            case "Eggs":
+                //Increases players damage by 30
+                if (!isPoweredUp)
+                {
+                    isPoweredUp = true;
+                    currentPowerUp = "Eggs";
+                    playerDamage += 1;
+                }
+                break;
+
+            case "Bongos":
+                //Gives player max stamina for 15 seconds
+                if (!isPoweredUp)
+                {
+                    isPoweredUp = true;
+                    currentPowerUp = "Bongos";
+                }
+                break;
+
+            case "Banana":
+                //Increases players health by 10 if they're not at 100 already
+                if (lives < 100)
+                {
+                    lives ++;
+                    GameObject.Find("GameManager").GetComponent<scrGameManager>().UpdateData(lives);
+                }
                 break;
         }
     }
