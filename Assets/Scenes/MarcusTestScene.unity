@@ -1922,6 +1922,14 @@ MonoBehaviour:
   slingshotSound: {fileID: 8300000, guid: ebce132d7d48a984e9ce7b38cf9250ae, type: 3}
   strechSound: {fileID: 8300000, guid: da2484a11a6ba5545b2a8795d1c09b23, type: 3}
   panPause: {fileID: 1067598432}
+  monkeySounds:
+  - {fileID: 8300000, guid: 47eb34b61898f5743a62f83cb4c0453d, type: 3}
+  - {fileID: 8300000, guid: 43356ebe21729d448a18f9109f611290, type: 3}
+  - {fileID: 8300000, guid: 7c3713b977be2c04abdb8113493d7f95, type: 3}
+  - {fileID: 8300000, guid: da143bb8dbf14be48959d845ea562365, type: 3}
+  nextSound: 0
+  ranTime: {x: 0, y: 0}
+  ranVolume: {x: 0, y: 0}
   currentPowerUp: 
 --- !u!50 &988625456
 Rigidbody2D:
@@ -3705,6 +3713,10 @@ MonoBehaviour:
   slingshotSound: {fileID: 0}
   strechSound: {fileID: 0}
   panPause: {fileID: 0}
+  monkeySounds: []
+  nextSound: 0
+  ranTime: {x: 0, y: 0}
+  ranVolume: {x: 0, y: 0}
   currentPowerUp: 
 --- !u!1001 &1869222820
 PrefabInstance:
