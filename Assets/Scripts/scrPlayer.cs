@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,9 @@ public class scrPlayer : MonoBehaviour
     public AudioSource sound;
     public AudioClip slingshotSound, strechSound;
     public GameObject panPause;
+
+    public TMP_Text txtPlayerHealth;
+    public GameObject gameOver;
 
     //Powerup detection variables
     public string currentPowerUp = "";
@@ -117,9 +121,18 @@ public class scrPlayer : MonoBehaviour
     {
         panPause.SetActive(true);
     }
+    public void GameOver()
+    {
+        panPause.SetActive(true);
+    }
     public void Resume()
     {
         panPause.SetActive(false);
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
     }
     public void QuitBtn()
     {
@@ -129,6 +142,18 @@ public class scrPlayer : MonoBehaviour
     public void MainMenuBtn()
     {
         SceneManager.LoadScene("MainMenu");
+
+    }
+    public void HandleGameOver()
+    {
+        //displays end game panel
+        gameOver.SetActive(true);
+        //stops player movement
+        Time.timeScale = 0;
+    }
+    public void UpdateData(int hp)
+    {
+        txtPlayerHealth.text = "Health: " + lives;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -146,6 +171,10 @@ public class scrPlayer : MonoBehaviour
 
             case "enemy":
                 lives--;
+                if (lives == 0)
+                {
+                    HandleGameOver();
+                }
                 break;
 
             case "Finish":
@@ -164,20 +193,25 @@ public class scrPlayer : MonoBehaviour
 
                 //Damages players health by 1 when touched
                 lives --;
-                GameObject.Find("GameManager").GetComponent<scrGameManager>().UpdateData(lives);
+                if (lives == 0)
+                {
+                    HandleGameOver();
+                }
                 break;
 
             //Damages players health by 30 when touched
             case "SpikeStakes":
                 lives --;
-                GameObject.Find("GameManager").GetComponent<scrGameManager>().UpdateData(lives);
+                if (lives == 0)
+                {
+                    HandleGameOver();
+                }
                 break;
 
             //Acts as a deathplane
             case "Water":
                 lives = 0;
-                GameObject.Find("GameManager").GetComponent<scrGameManager>().UpdateData(lives);
-                GameObject.Find("GameManager").GetComponent<scrGameManager>().HandleGameOver();
+                HandleGameOver();
                 break;
 
             case "Boulders":
@@ -225,7 +259,6 @@ public class scrPlayer : MonoBehaviour
                 if (lives < 100)
                 {
                     lives ++;
-                    GameObject.Find("GameManager").GetComponent<scrGameManager>().UpdateData(lives);
                 }
                 break;
         }

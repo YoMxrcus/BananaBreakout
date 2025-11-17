@@ -1,4 +1,4 @@
-using TMPro;
+/*using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,20 +23,14 @@ public class scrGameManager : MonoBehaviour
     public void HandleGameOver()
     {
         //displays end game panel
-        //gameOver.SetActive(true);
-
+        gameOver.SetActive(true);
         //stops player movement
         Time.timeScale = 0;
-        //GameObject.Find("Player").GetComponent<scrPlayer>().speed = 0;
-        if (GameObject.Find("Player").GetComponent<scrPlayer>().lives == 0)
-        {
-            //Lose stuff
-        }
     }
-    //sound.PlayOneShot(winSound);
 
     public void UpdateData(int hp)
     {
         txtPlayerHealth.text = "Health: " + GameObject.Find("Player").GetComponent<scrPlayer>().lives;
     }
 }
+*/
