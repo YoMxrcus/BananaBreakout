@@ -11,7 +11,7 @@ public class scrGameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        sound.PlayOneShot(winSound);
+        
     }
 
     // Update is called once per frame
