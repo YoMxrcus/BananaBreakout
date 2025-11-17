@@ -33,4 +33,8 @@ public class scrMainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    public void CreditBtn() 
+    {
+        SceneManager.LoadScene("Credits");
+    }
 }
