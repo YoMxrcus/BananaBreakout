@@ -8,6 +8,7 @@ TagManager:
   - Water
   - enemy
   - Eggs
+  - Banana
   layers:
   - Default
   - TransparentFX

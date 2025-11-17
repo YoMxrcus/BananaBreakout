@@ -21,8 +21,10 @@ public class scrPlayer : MonoBehaviour
     public GameObject panPause;
     public GameObject gameOver;
     int eggs;
+    int banana;
     public TMP_Text txtPlayerHealth;
     public TMP_Text txtEggs;
+    public TMP_Text txtBanana;
     public bool isInvincible;
 
 
@@ -85,12 +87,25 @@ public class scrPlayer : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         { transform.rotation = Quaternion.Euler(0, 0, 0); }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (banana > 0)
+            {
+                banana--;
+                lives++;
+                UpdateData();
+            }
+        }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            eggs--;
-            isInvincible = true;
-            UpdateData();
-            Invoke("EndInvincibility", 5f);
+            if (eggs > 0)
+            {
+                eggs--;
+                isInvincible = true;
+                UpdateData();
+                Invoke("EndInvincibility", 5f);
+            }
+            
         }
     }
         void OnCollisionStay2D(Collision2D collision)
@@ -167,6 +182,7 @@ public class scrPlayer : MonoBehaviour
     {
         txtPlayerHealth.text = "X: " + lives;
         txtEggs.text = "" + eggs;
+        txtBanana.text = "" + banana;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -280,12 +296,10 @@ public class scrPlayer : MonoBehaviour
                 break;
 
             case "Banana":
+                banana++;
+                Destroy(other.gameObject);
                 //Increases players health by 10 if they're not at 100 already
-                if (lives < 100)
-                {
-                    lives ++;
-                    UpdateData();
-                }
+                UpdateData();
                 break;
         }
     }
