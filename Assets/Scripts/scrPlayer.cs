@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     public GameObject slingshot;
     public AudioSource sound;
     public AudioClip slingshotSound, strechSound;
+    public GameObject panPause;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         staminaBar.gameObject.SetActive(true);
+        panPause.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -107,7 +110,23 @@ public class Player : MonoBehaviour
         sound.PlayOneShot(slingshotSound);
         canMove = true;
     }
-    
+    public void Paused()
+    {
+        panPause.SetActive(true);
+    }
+    public void Resume()
+    {
+        panPause.SetActive(false);
+    }
+    public void QuitBtn()
+    {
+        Application.Quit();
+        Debug.Log("Quit");
+    }
+    public void MainMenuBtn()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         switch (other.tag)
