@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class scrPlayer : MonoBehaviour
 {
     Rigidbody2D rb;
     public int speed = 10;

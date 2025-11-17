@@ -23,19 +23,20 @@ public class scrGameManager : MonoBehaviour
     public void HandleGameOver()
     {
         //displays end game panel
-        gameOver.SetActive(true);
+        //gameOver.SetActive(true);
+
         //stops player movement
-        GameObject.Find("Player").GetComponent<Player>().speed = 0;
-        if (GameObject.Find("Player").GetComponent<Player>().lives == 0)
+        Time.timeScale = 0;
+        //GameObject.Find("Player").GetComponent<scrPlayer>().speed = 0;
+        if (GameObject.Find("Player").GetComponent<scrPlayer>().lives == 0)
         {
             //Lose stuff
         }
-        sound.PlayOneShot(winSound);
-
     }
+    //sound.PlayOneShot(winSound);
 
     public void UpdateData(int hp)
     {
-        txtPlayerHealth.text = "Health: " + GameObject.Find("Player").GetComponent<Player>().lives;
+        txtPlayerHealth.text = "Health: " + GameObject.Find("Player").GetComponent<scrPlayer>().lives;
     }
 }
