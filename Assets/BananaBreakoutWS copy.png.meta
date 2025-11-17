@@ -212,7 +212,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BananaBreakoutWS copy_0: -4475603143085998430
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
