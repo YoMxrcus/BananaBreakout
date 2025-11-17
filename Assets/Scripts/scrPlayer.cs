@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         {
             //Player throws a punch if they are in range of an enemy
         }
-
+    }
         void OnCollisionStay2D(Collision2D collision)
         {
             canJump = true;
@@ -113,7 +113,6 @@ public class Player : MonoBehaviour
             sound.PlayOneShot(slingshotSound);
             canMove = true;
         }
-    }
     public void Paused()
     {
         panPause.SetActive(true);
