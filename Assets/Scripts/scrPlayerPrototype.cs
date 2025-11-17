@@ -1,4 +1,4 @@
-using TMPro;
+/*using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,8 +12,6 @@ public class scrPlayerPrototype : MonoBehaviour
     //Powerup detection variables
     public string currentPowerUp = "";
     bool isPoweredUp = false;
-
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -115,3 +113,4 @@ public class scrPlayerPrototype : MonoBehaviour
 
     }
 }
+*/

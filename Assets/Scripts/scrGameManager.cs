@@ -26,7 +26,7 @@ public class scrGameManager : MonoBehaviour
         gameOver.SetActive(true);
         //stops player movement
         GameObject.Find("Player").GetComponent<Player>().speed = 0;
-        if (GameObject.Find("Player").GetComponent<Player>().playerHealth == 0)
+        if (GameObject.Find("Player").GetComponent<Player>().lives == 0)
         {
             //Lose stuff
         }
@@ -36,6 +36,6 @@ public class scrGameManager : MonoBehaviour
 
     public void UpdateData(int hp)
     {
-        txtPlayerHealth.text = "Health: " + GameObject.Find("Player").GetComponent<Player>().playerHealth;
+        txtPlayerHealth.text = "Health: " + GameObject.Find("Player").GetComponent<Player>().lives;
     }
 }
