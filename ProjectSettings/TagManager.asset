@@ -6,6 +6,7 @@ TagManager:
   tags:
   - slingshot
   - Water
+  - enemy
   layers:
   - Default
   - TransparentFX

@@ -89,15 +89,11 @@ public class scrEnemyScript : MonoBehaviour
 
     void Move()
     {
-        //animator.SetBool("Run", true);
+        //animator.SetBool("Run", true); 
 
-        /*if (!animator.GetCurrentAnimatorStateInfo(0).IsName("enemy1Attack"))
-        {
             Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
 
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-        }*/
     }
 
     void Attack()
