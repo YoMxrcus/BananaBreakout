@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
             { EndSprint(); staminaBar.value = stamina; }
         }
         if (stamina <= 0f)
-            { EndSprint(); }
+        { EndSprint(); }
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && canJump)
         {
@@ -71,48 +71,48 @@ public class Player : MonoBehaviour
             Invoke("StopSlide", 0.5f);
         }
         if (Input.GetKey(KeyCode.A))
-            {transform.rotation = Quaternion.Euler(0,180,0);}
+        { transform.rotation = Quaternion.Euler(0, 180, 0); }
 
         if (Input.GetKey(KeyCode.D))
-            {transform.rotation = Quaternion.Euler(0, 0, 0);}
+        { transform.rotation = Quaternion.Euler(0, 0, 0); }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
             //Player throws a punch if they are in range of an enemy
         }
     }
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        canJump = true;
-    }
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        canJump = false;
-    }
-    void Sprint()
-    {
-        speed = 15;
-    }
-    void EndSprint()
-    {
-        speed = 10;
-        if (stamina < 100)
-        { stamina+= 0.25f; }
-    }
-    void StopSlide()
-    {
-        { transform.rotation = Quaternion.Euler(0, 0, 0); }
-        speed = 10;
-    }
-    void Launch()
-    {
-        rb.constraints = RigidbodyConstraints2D.None;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        rb.AddForce((new Vector2(1000.0f, 300.0f)) * 1.5f);
-        sound.Stop();
-        sound.PlayOneShot(slingshotSound);
-        canMove = true;
-    }
+        void OnCollisionStay2D(Collision2D collision)
+        {
+            canJump = true;
+        }
+        void OnCollisionExit2D(Collision2D collision)
+        {
+            canJump = false;
+        }
+        void Sprint()
+        {
+            speed = 15;
+        }
+        void EndSprint()
+        {
+            speed = 10;
+            if (stamina < 100)
+            { stamina += 0.25f; }
+        }
+        void StopSlide()
+        {
+            { transform.rotation = Quaternion.Euler(0, 0, 0); }
+            speed = 10;
+        }
+        void Launch()
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            rb.AddForce((new Vector2(1000.0f, 300.0f)) * 1.5f);
+            sound.Stop();
+            sound.PlayOneShot(slingshotSound);
+            canMove = true;
+        }
     public void Paused()
     {
         panPause.SetActive(true);

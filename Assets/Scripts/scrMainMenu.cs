@@ -3,13 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class scrMainMenu : MonoBehaviour
 {
-    public GameObject MainMenu;
-    public GameObject HelpMenu;
+
   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        HelpMenu.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -28,12 +27,10 @@ public class scrMainMenu : MonoBehaviour
     }
     public void HelpBtn()
     {
-        MainMenu.SetActive(false);
-        HelpMenu.SetActive(true);
+        SceneManager.LoadScene("Help");
     }
     public void BackBtn()
     {
-        MainMenu.SetActive(true);
-        HelpMenu.SetActive(false);
+        SceneManager.LoadScene("MainMenu");
     }
 }
