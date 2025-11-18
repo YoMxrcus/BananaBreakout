@@ -180,11 +180,11 @@ MonoBehaviour:
 
     Use Space to Jump
 
-    Use q/w/e/r
+    Use q (Egg)
+    | w (Banana) | e | r
 
-    Run
-    through the jungle using slingshots to go fasterand avoid the different obstacles
-    to get to the end'
+    Run through the jungle using slingshots to go faster
+    and avoid the different obstacles to get to the end'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0a96bbed1569000469285430ab09a64f, type: 2}
   m_sharedMaterial: {fileID: -3903742912623709674, guid: 0a96bbed1569000469285430ab09a64f, type: 2}
