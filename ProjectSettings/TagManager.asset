@@ -9,6 +9,8 @@ TagManager:
   - enemy
   - Eggs
   - Banana
+  - Spike
+  - DroppedSpike
   layers:
   - Default
   - TransparentFX

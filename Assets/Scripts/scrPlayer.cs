@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
@@ -25,7 +26,7 @@ public class scrPlayer : MonoBehaviour
     public TMP_Text txtPlayerHealth;
     public TMP_Text txtEggs;
     public TMP_Text txtBanana;
-    public bool isInvincible;
+    public bool isInvincible = false;
 
 
     //Powerup detection variables
@@ -39,7 +40,7 @@ public class scrPlayer : MonoBehaviour
         staminaBar.gameObject.SetActive(true);
         panPause.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
-        isInvincible = false;
+        UpdateData();
     }
 
     // Update is called once per frame
@@ -113,11 +114,11 @@ public class scrPlayer : MonoBehaviour
         {
             canJump = true;
         }
-        void OnCollisionExit2D(Collision2D collision)
+    void OnCollisionExit2D(Collision2D collision)
         {
             canJump = false;
         }
-        void Sprint()
+    void Sprint()
         {
             speed = 15;
         }
@@ -212,6 +213,16 @@ public class scrPlayer : MonoBehaviour
                     HandleGameOver();
                 }
                 break;
+            
+            case "DroppedSpike":
+                if (!isInvincible) 
+                {
+                    //sound.PlayOneShot(hit);
+                    lives = 0;
+                    HandleGameOver();
+                }
+                break;
+
 
             case "Finish":
                 Time.timeScale = 0;
@@ -235,16 +246,7 @@ public class scrPlayer : MonoBehaviour
                     HandleGameOver();
                 }
                 break;
-
-            //Damages players health by 30 when touched
-            case "SpikeStakes":
-                lives --;
-                UpdateData();
-                if (lives == 0)
-                {
-                    HandleGameOver();
-                }
-                break;
+            
 
             //Acts as a deathplane
             case "Water":
