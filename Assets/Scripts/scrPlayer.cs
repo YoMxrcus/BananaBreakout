@@ -17,7 +17,6 @@ public class scrPlayer : MonoBehaviour
     public int playerDamage = 1;
     public Slider staminaBar;
     public GameObject slingshot;
-    public GameObject spike;
     public AudioSource sound;
     public AudioClip slingshotSound, strechSound, monkeySound1, monkeySound2, monkeySound3, monkeySound4;
     public GameObject panPause;
