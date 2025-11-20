@@ -21,6 +21,7 @@ public class scrPlayer : MonoBehaviour
     public AudioClip slingshotSound, strechSound, monkeySound1, monkeySound2, monkeySound3, monkeySound4;
     public GameObject panPause;
     public GameObject gameOver;
+    public Animator anim;
     int eggs;
     int banana;
     public TMP_Text txtPlayerHealth;
@@ -42,6 +43,7 @@ public class scrPlayer : MonoBehaviour
         panPause.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
         UpdateData();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -54,10 +56,6 @@ public class scrPlayer : MonoBehaviour
 
             Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime;
             transform.position += movement;
-            /*float moveHorizontal = Input.GetAxis("Horizontal");
-
-            Vector2 movement = new Vector2(moveHorizontal, 0.0f);
-            rb.AddForce(movement * speed);//multiplies by speed to see how fast the player moves*/
         }
     }
     private void Update()
@@ -91,11 +89,19 @@ public class scrPlayer : MonoBehaviour
         { stamina += 0.05f; UpdateData(); }
 
 
-        if (Input.GetKey(KeyCode.A))
-        { transform.rotation = Quaternion.Euler(0, 180, 0); isLeft = true; }
+        if (Input.GetKeyDown(KeyCode.A))
+        { transform.rotation = Quaternion.Euler(0, 180, 0); isLeft = true;}
 
-        if (Input.GetKey(KeyCode.D))
-        { transform.rotation = Quaternion.Euler(0, 0, 0); isLeft = false; }
+        if (Input.GetKeyDown(KeyCode.D))
+        { transform.rotation = Quaternion.Euler(0, 0, 0); isLeft = false;}
+        
+
+        // Movement Animations
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        { anim.SetBool("IsMoving", true); }
+        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        { anim.SetBool("IsMoving", false); }
+
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
