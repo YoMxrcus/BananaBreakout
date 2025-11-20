@@ -126,12 +126,21 @@ public class scrEnemyScript : MonoBehaviour
     {
         if (distance > attackDistance)
         {
+            Flip();
             Debug.DrawRay(rayCast.position, Vector2.left * rayCastLength, Color.red);
         }
         else if (attackDistance > distance)
         {
+            Flip();
             Debug.DrawRay(rayCast.position, Vector2.left * rayCastLength, Color.green);
         }
+    }
+
+    private void Flip()
+    {
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
     }
 
     public void TriggerCooling()
