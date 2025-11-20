@@ -27,6 +27,7 @@ public class scrPlayer : MonoBehaviour
     public TMP_Text txtEggs;
     public TMP_Text txtBanana;
     public bool isInvincible = false;
+    bool isLeft;
 
 
     //Powerup detection variables
@@ -67,27 +68,34 @@ public class scrPlayer : MonoBehaviour
             Debug.Log("Jump");
             
         }
-        if (stamina > 0f)
+        if (stamina >= 100f)
         {
-            if (Input.GetKey(KeyCode.LeftShift))
-            { Sprint(); stamina--; staminaBar.value = stamina; }
-            else
-            { EndSprint(); staminaBar.value = stamina; }
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                if (isLeft)
+                { 
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    rb.AddForce((new Vector2(-200.0f, 0.0f)) * 1.5f);
+                    stamina = 0; UpdateData();
+                }
+                else
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    rb.AddForce((new Vector2(200, 0.0f)) * 1.5f);
+                    stamina = 0; UpdateData();
+                }
+               
+            }
         }
-        if (stamina <= 0f)
-        { EndSprint(); }
+        if (stamina < 100)
+        { stamina += 0.05f; UpdateData(); }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && canJump)
-        {
-            { transform.rotation = Quaternion.Euler(0, 0, 90); }//kinda broken bc left/right movement overrides
-            rb.AddForce((new Vector2(125.0f, 0.0f)) * 1.5f);
-            Invoke("StopSlide", 0.5f);
-        }
+
         if (Input.GetKey(KeyCode.A))
-        { transform.rotation = Quaternion.Euler(0, 180, 0); }
+        { transform.rotation = Quaternion.Euler(0, 180, 0); isLeft = true; }
 
         if (Input.GetKey(KeyCode.D))
-        { transform.rotation = Quaternion.Euler(0, 0, 0); }
+        { transform.rotation = Quaternion.Euler(0, 0, 0); isLeft = false; }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -118,24 +126,9 @@ public class scrPlayer : MonoBehaviour
         {
             canJump = false;
         }
-    void Sprint()
-        {
-            speed = 15;
-        }
-        void EndSprint()
-        {
-            speed = 10;
-            if (stamina < 100)
-            { stamina += 0.25f; }
-        }
         void EndInvincibility()
         {
             isInvincible = false;
-        }
-        void StopSlide()
-        {
-            { transform.rotation = Quaternion.Euler(0, 0, 0); }
-            speed = 10;
         }
         void Launch()
         {
@@ -185,6 +178,7 @@ public class scrPlayer : MonoBehaviour
         txtPlayerHealth.text = "X: " + lives;
         txtEggs.text = "" + eggs;
         txtBanana.text = "" + banana;
+        staminaBar.value = stamina;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
