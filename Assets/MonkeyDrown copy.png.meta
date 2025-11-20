@@ -212,7 +212,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MonkeyDrown copy_0: 4497480720579798435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
