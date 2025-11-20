@@ -9,7 +9,7 @@ public class scrMainMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        sound.PlayOneShot(bgMusic);
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class scrMainMenu : MonoBehaviour
     }
     public void StartBtn()
     {
-        SceneManager.LoadScene("LevelUno");
+        SceneManager.LoadScene("TransitionAnim");
     }
     public void HelpBtn()
     {
