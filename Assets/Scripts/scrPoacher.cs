@@ -85,10 +85,6 @@ public class scrPoacher: MonoBehaviour
             Cooldown();
             //animator.SetBool("Attack", false);
         }
-        if (attackMode)
-        {
-            Invoke("LaunchProjectile", 10f);
-        }
     }
 
     void Move()
@@ -107,6 +103,9 @@ public class scrPoacher: MonoBehaviour
 
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
         GameObject instance = Instantiate(dart, pos, Quaternion.Euler(0, 0, 0));
+
+        if (timer % 10 == 0)
+        { /*LaunchProjectile();*/ }
         //animator.SetBool("Run", false);
         //animator.SetBool("Attack", true);
     }

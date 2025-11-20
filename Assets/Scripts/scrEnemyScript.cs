@@ -16,7 +16,7 @@ public class scrEnemyScript : MonoBehaviour
     #region Private Variables
     private RaycastHit2D hit;
     private GameObject target;
-    private Animator anim;
+    public Animator anim;
     private float distance; //store distance between enemy and player
     private bool attackMode;
     private bool inRange; //See if player in range
@@ -51,7 +51,7 @@ public class scrEnemyScript : MonoBehaviour
 
         if (inRange == false)
         {
-            //animator.SetBool("Run", false);
+            anim.SetFloat("Speed", 0.0f);
             StopAttack();
         }
     }
@@ -82,13 +82,13 @@ public class scrEnemyScript : MonoBehaviour
         if (cooling)
         {
             Cooldown();
-            anim.SetBool("Gorilla_Attack", false);
+            anim.SetBool("inRange", false);
         }
     }
 
     void Move()
     {
-        //animator.SetBool("Run", true); 
+        anim.SetFloat("Speed", 0.1f); 
 
             Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
 
@@ -100,8 +100,8 @@ public class scrEnemyScript : MonoBehaviour
         timer = intTimer;
         attackMode = true;
 
-        //animator.SetBool("Run", false);
-        anim.SetBool("Gorilla_Attack", true);
+        anim.SetFloat("Speed", 0.1f);
+        anim.SetBool("inRange", true);
     }
 
     void Cooldown()
@@ -119,7 +119,7 @@ public class scrEnemyScript : MonoBehaviour
     {
         cooling = false;
         attackMode = false;
-        anim.SetBool("Gorilla_Attack", false);
+        anim.SetBool("inRange", false);
     }
 
     void RaycastDebugger()

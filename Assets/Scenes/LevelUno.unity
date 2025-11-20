@@ -1652,6 +1652,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gorilla (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6060408653290717986, guid: 93167747c213c704193139c05227789a, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1554765891}
     - target: {fileID: 7475212388818829273, guid: 93167747c213c704193139c05227789a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.664886
@@ -2545,6 +2549,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7475212388818829273, guid: 93167747c213c704193139c05227789a, type: 3}
   m_PrefabInstance: {fileID: 446384701}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &226186414 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3184215959589768444, guid: 93167747c213c704193139c05227789a, type: 3}
+  m_PrefabInstance: {fileID: 446384701}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &237724660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2813,6 +2822,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gorilla (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6060408653290717986, guid: 93167747c213c704193139c05227789a, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 414927595}
     - target: {fileID: 7475212388818829273, guid: 93167747c213c704193139c05227789a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.664886
@@ -2860,6 +2873,10 @@ PrefabInstance:
     - target: {fileID: 7475212388818829273, guid: 93167747c213c704193139c05227789a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074209039728546516, guid: 93167747c213c704193139c05227789a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.29
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4619,6 +4636,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c39f423b1cfb8794aaff2237500c776b, type: 3}
+--- !u!95 &414927595 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3184215959589768444, guid: 93167747c213c704193139c05227789a, type: 3}
+  m_PrefabInstance: {fileID: 251597771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &422915656 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7140770059307980628, guid: fe4253670f9f9ea4d8245c9a87f88080, type: 3}
@@ -4712,6 +4734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gorilla (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6060408653290717986, guid: 93167747c213c704193139c05227789a, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 226186414}
     - target: {fileID: 7475212388818829273, guid: 93167747c213c704193139c05227789a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.664886
@@ -8905,6 +8931,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7140770059307980628, guid: fe4253670f9f9ea4d8245c9a87f88080, type: 3}
   m_PrefabInstance: {fileID: 780786188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &793780175 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3184215959589768444, guid: 93167747c213c704193139c05227789a, type: 3}
+  m_PrefabInstance: {fileID: 4783273344080137815}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &799514420
 PrefabInstance:
@@ -14929,6 +14960,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gorilla (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6060408653290717986, guid: 93167747c213c704193139c05227789a, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1484802397}
     - target: {fileID: 7475212388818829273, guid: 93167747c213c704193139c05227789a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.664886
@@ -15573,6 +15608,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7475212388818829273, guid: 93167747c213c704193139c05227789a, type: 3}
   m_PrefabInstance: {fileID: 1406388986}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1484802397 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3184215959589768444, guid: 93167747c213c704193139c05227789a, type: 3}
+  m_PrefabInstance: {fileID: 1406388986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1493635301 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7140770059307980628, guid: fe4253670f9f9ea4d8245c9a87f88080, type: 3}
@@ -16001,9 +16041,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7475212388818829273, guid: 93167747c213c704193139c05227789a, type: 3}
   m_PrefabInstance: {fileID: 2128936670}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1546987157 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3184215959589768444, guid: 93167747c213c704193139c05227789a, type: 3}
+  m_PrefabInstance: {fileID: 2128936670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1554765888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7475212388818829273, guid: 93167747c213c704193139c05227789a, type: 3}
+  m_PrefabInstance: {fileID: 166283909}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1554765891 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3184215959589768444, guid: 93167747c213c704193139c05227789a, type: 3}
   m_PrefabInstance: {fileID: 166283909}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1560596467
@@ -21755,6 +21805,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gorilla (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6060408653290717986, guid: 93167747c213c704193139c05227789a, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1546987157}
     - target: {fileID: 7475212388818829273, guid: 93167747c213c704193139c05227789a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.664886
@@ -21984,6 +22038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gorilla
       objectReference: {fileID: 0}
+    - target: {fileID: 6060408653290717986, guid: 93167747c213c704193139c05227789a, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 793780175}
     - target: {fileID: 7475212388818829273, guid: 93167747c213c704193139c05227789a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.664886
