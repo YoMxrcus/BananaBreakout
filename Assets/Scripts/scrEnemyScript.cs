@@ -16,7 +16,7 @@ public class scrEnemyScript : MonoBehaviour
     #region Private Variables
     private RaycastHit2D hit;
     private GameObject target;
-    //private Animator animator;
+    private Animator anim;
     private float distance; //store distance between enemy and player
     private bool attackMode;
     private bool inRange; //See if player in range
@@ -27,7 +27,7 @@ public class scrEnemyScript : MonoBehaviour
     void Awake()
     {
         intTimer = timer;
-        //animator = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -82,7 +82,7 @@ public class scrEnemyScript : MonoBehaviour
         if (cooling)
         {
             Cooldown();
-            //animator.SetBool("Attack", false);
+            anim.SetBool("Gorilla_Attack", false);
         }
     }
 
@@ -101,7 +101,7 @@ public class scrEnemyScript : MonoBehaviour
         attackMode = true;
 
         //animator.SetBool("Run", false);
-        //animator.SetBool("Attack", true);
+        anim.SetBool("Gorilla_Attack", true);
     }
 
     void Cooldown()
@@ -119,7 +119,7 @@ public class scrEnemyScript : MonoBehaviour
     {
         cooling = false;
         attackMode = false;
-        //animator.SetBool("Attack", false);
+        anim.SetBool("Gorilla_Attack", false);
     }
 
     void RaycastDebugger()
