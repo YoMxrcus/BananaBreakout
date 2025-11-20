@@ -31,20 +31,20 @@ public class scrProjectile : MonoBehaviour
         {   //Moves the projectile towards the player using MoveTowards
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed);
             //Destroys the projectile instantiated after 2 seconds
-            //Destroy(dart, 2);
+            Destroy(dart, 2);
         }
     }
 
-    /*public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         //checks the tag of an object with a collider to see if its a wall
         if (other.CompareTag("Wall"))
         {
-            Destroy(projectile); //if so it destroys the projectile
+            Destroy(dart); //if so it destroys the projectile
         }
         if (other.CompareTag("Player"))
         {
-            Destroy(projectile); //if so it destroys the projectile
+            Destroy(dart); //if so it destroys the projectile
         }
-    }*/
+    }
 }

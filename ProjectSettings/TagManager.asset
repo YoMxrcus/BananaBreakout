@@ -11,6 +11,7 @@ TagManager:
   - Banana
   - Spike
   - DroppedSpike
+  - Wall
   layers:
   - Default
   - TransparentFX
