@@ -603,7 +603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &37660191
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1154,8 +1154,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1655005747}
+        m_TargetAssemblyTypeName: scrPlayer, Assembly-CSharp
         m_MethodName: MainMenuBtn
         m_Mode: 1
         m_Arguments:
@@ -2465,8 +2465,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1655005747}
+        m_TargetAssemblyTypeName: scrPlayer, Assembly-CSharp
         m_MethodName: QuitBtn
         m_Mode: 1
         m_Arguments:
@@ -6677,8 +6677,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1655005747}
+        m_TargetAssemblyTypeName: scrPlayer, Assembly-CSharp
         m_MethodName: Paused
         m_Mode: 1
         m_Arguments:
@@ -13065,8 +13065,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1655005747}
+        m_TargetAssemblyTypeName: scrPlayer, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
