@@ -12,11 +12,13 @@ public class scrPoacher: MonoBehaviour
     public float moveSpeed;
     public float timer; //Cooldown of attacks
     public GameObject dart;
+    public Transform dartPos;
     #endregion
 
     #region Private Variables
     private RaycastHit2D hit;
     private GameObject target;
+    private GameObject player;
     //private Animator animator;
     private float distance; //store distance between enemy and player
     private bool attackMode;
@@ -25,6 +27,10 @@ public class scrPoacher: MonoBehaviour
     private float intTimer;
     #endregion 
 
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     void Awake()
     {
         intTimer = timer;
@@ -34,6 +40,21 @@ public class scrPoacher: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        Debug.Log(distance);
+
+        if (distance < 10)
+        {
+            timer += Time.deltaTime;
+
+            if (timer > 2)
+            {
+                timer = 0;
+                shoot();
+            }
+        }
+
         if (inRange)
         {
             hit = Physics2D.Raycast(rayCast.position, Vector2.left, rayCastLength, raycastMask);
@@ -55,6 +76,10 @@ public class scrPoacher: MonoBehaviour
             //animator.SetBool("Run", false);
             StopAttack();
         }
+    }
+    void shoot()
+    {
+        Instantiate(dart, dartPos.position, Quaternion.identity);
     }
 
     void OnTriggerEnter2D(Collider2D trig)
