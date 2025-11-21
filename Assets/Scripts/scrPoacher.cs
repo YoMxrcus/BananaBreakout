@@ -11,7 +11,7 @@ public class scrPoacher: MonoBehaviour
     public float attackDistance; //Minimum distance
     public float moveSpeed;
     public float timer; //Cooldown of attacks
-    public GameObject dart;
+    public GameObject Dart;
     public Transform dartPos;
     #endregion
 
@@ -79,7 +79,7 @@ public class scrPoacher: MonoBehaviour
     }
     void shoot()
     {
-        Instantiate(dart, dartPos.position, Quaternion.identity);
+        Instantiate(Dart, dartPos.position, Quaternion.identity);
     }
 
     void OnTriggerEnter2D(Collider2D trig)
@@ -127,7 +127,7 @@ public class scrPoacher: MonoBehaviour
         attackMode = true;
 
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
-        GameObject instance = Instantiate(dart, pos, Quaternion.Euler(0, 0, 0));
+        GameObject instance = Instantiate(Dart, pos, Quaternion.Euler(0, 0, 0));
 
         if (timer % 10 == 0)
         { /*LaunchProjectile();*/ }
@@ -136,7 +136,7 @@ public class scrPoacher: MonoBehaviour
     }
     void LaunchProjectile()
     {   //instantiates a projectile prefab
-        GameObject instance = Instantiate(dart, transform.position, Quaternion.identity);
+        GameObject instance = Instantiate(Dart, transform.position, Quaternion.identity);
         instance.GetComponent<scrProjectile>().direction = 0;
         instance.GetComponent<scrProjectile>().target = GameObject.Find("Player").transform;
         //Uses GetComponent to get certain direction from the projectile script

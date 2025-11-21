@@ -1557,6 +1557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PointB
       objectReference: {fileID: 0}
+    - target: {fileID: 4423728881970285174, guid: 59ae3d5fa7d9c3d409e5e8f69b56ddda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14417,6 +14421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassPlatfotm
       objectReference: {fileID: 0}
+    - target: {fileID: 1058312190006243720, guid: fe4253670f9f9ea4d8245c9a87f88080, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 7140770059307980628, guid: fe4253670f9f9ea4d8245c9a87f88080, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.61882997
@@ -15277,7 +15285,7 @@ GameObject:
   - component: {fileID: 1439664509}
   m_Layer: 0
   m_Name: GrassPlatformManager
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15770,6 +15778,10 @@ PrefabInstance:
     - target: {fileID: 6967286906113746058, guid: f26687139234a684aacc2be3ae7ce0b5, type: 3}
       propertyPath: m_Name
       value: crocodile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967286906113746058, guid: f26687139234a684aacc2be3ae7ce0b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17076,6 +17088,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PointA
       objectReference: {fileID: 0}
+    - target: {fileID: 6459121191852325719, guid: 92c85f7c597be7548be39973b3c63782, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17297,6 +17313,7 @@ GameObject:
   - component: {fileID: 1655005749}
   - component: {fileID: 1655005750}
   - component: {fileID: 1655005751}
+  - component: {fileID: 1655005752}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -17590,6 +17607,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1655005752
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655005743}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.06, y: 2.61}
+  m_Size: {x: 8.7, y: 10.35}
+  m_Direction: 0
 --- !u!1 &1662286205
 GameObject:
   m_ObjectHideFlags: 0
@@ -21568,7 +21622,7 @@ MonoBehaviour:
   attackDistance: 0
   moveSpeed: 0
   timer: 0
-  dart: {fileID: -7178615899162201487, guid: c6a0d1de1120dd04382d11610603481a, type: 3}
+  Dart: {fileID: 3644833867674135149, guid: 76bdcc2624a6e73478213eebe65ceda6, type: 3}
   dartPos: {fileID: 689983803}
 --- !u!136 &2098487754
 CapsuleCollider:

@@ -12,6 +12,7 @@ TagManager:
   - Spike
   - DroppedSpike
   - Wall
+  - Dart
   layers:
   - Default
   - TransparentFX

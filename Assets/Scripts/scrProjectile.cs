@@ -9,7 +9,7 @@ public class scrProjectile : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb;
     public Transform target;
-    public GameObject dart;
+    public GameObject Dart;
     public float force;
     public float timer;
 
@@ -49,22 +49,23 @@ public class scrProjectile : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 8)
+        if (timer > 4)
         {
-            Destroy(dart);
+            Destroy(Dart);
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         //checks the tag of an object with a collider to see if its a wall
         if (other.CompareTag("Wall"))
         {
-            Destroy(dart); //if so it destroys the projectile
+            Destroy(Dart); //if so it destroys the projectile
         }
         if (other.CompareTag("Player"))
         {
-            Destroy(dart); //if so it destroys the projectile
+            Destroy(Dart); //if so it destroys the projectile
+            Debug.Log("PlayerHit");
         }
     }
 }
