@@ -949,7 +949,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1200737614}
         m_TargetAssemblyTypeName: scrTransition, Assembly-CSharp
-        m_MethodName: ToLevelTwo
+        m_MethodName: nextBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
