@@ -54,18 +54,15 @@ public class scrProjectile : MonoBehaviour
             Destroy(Dart);
         }
     }
-
     void OnTriggerEnter(Collider other)
     {
-        //checks the tag of an object with a collider to see if its a wall
-        if (other.CompareTag("Wall"))
+        switch (other.tag)
         {
-            Destroy(Dart); //if so it destroys the projectile
-        }
-        if (other.CompareTag("Player"))
-        {
-            Destroy(Dart); //if so it destroys the projectile
-            Debug.Log("PlayerHit");
+            case "Wall": //checks the tag of an object with a collider to see if its a wall
+                {
+                    Destroy(other.gameObject); //if so it destroys the projectile
+                }
+                break;
         }
     }
 }
