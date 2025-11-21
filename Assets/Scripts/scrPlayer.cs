@@ -18,7 +18,7 @@ public class scrPlayer : MonoBehaviour
     public Slider staminaBar;
     public GameObject slingshot;
     public AudioSource sound;
-    public AudioClip slingshotSound, strechSound, monkeySound1, monkeySound2, monkeySound3, monkeySound4;
+    public AudioClip slingshotSound, strechSound, monkeySound1, monkeySound2, monkeySound3, monkeySound4, eggSound, bananaSound, bongoSound;
     public GameObject panPause;
     public GameObject gameOver;
     public Animator anim;
@@ -29,9 +29,6 @@ public class scrPlayer : MonoBehaviour
     public bool isInvincible = false;
     bool isLeft;
 
-
-    //Powerup detection variables
-    public string currentPowerUp = "";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,9 +46,11 @@ public class scrPlayer : MonoBehaviour
         if (canMove)
         {
             float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
 
-            Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime;
+            Vector2 inputDirection = new Vector2(horizontalInput, 0f);
+
+            Vector3 movement = new Vector3(inputDirection.x, 0f, 0f) * speed * Time.deltaTime;
+
             transform.position += movement;
         }
     }
@@ -65,7 +64,7 @@ public class scrPlayer : MonoBehaviour
         }
         if (stamina >= 100f)
         {
-            if (Input.GetKeyDown(KeyCode.LeftControl))
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 if (isLeft)
                 {
@@ -102,6 +101,7 @@ public class scrPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            sound.PlayOneShot(bananaSound);
             if (banana > 0)
             {
                 banana--;
@@ -111,6 +111,7 @@ public class scrPlayer : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
+            sound.PlayOneShot(eggSound);
             if (eggs > 0)
             {
                 eggs--;
@@ -122,6 +123,7 @@ public class scrPlayer : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
+            sound.PlayOneShot(bongoSound);
             if (bongo > 0)
             {
                 bongo--;
@@ -243,39 +245,12 @@ public class scrPlayer : MonoBehaviour
                 SceneManager.LoadScene("EndOfGame");
                 break;
 
-            //////////////////////// HAZARDS ////////////////////////
-
-            case "ThornWalls":
-                //Does no damage to player if the durian power up is active
-                if (currentPowerUp == "Durian")
-                {
-                    break;
-                }
-
-                //Damages players health by 1 when touched
-                lives --;
-                UpdateData();
-                if (lives == 0)
-                {
-                    HandleGameOver();
-                }
-                break;
-            
-
+            //////////////////////// HAZARDS ///////////////////////
             //Acts as a deathplane
             case "Water":
                 lives = 0;
                 UpdateData();
                 HandleGameOver();
-                break;
-
-            case "Boulders":
-                //Allows the player to break obstacles with the egg power up
-                if (currentPowerUp == "Eggs")
-                {
-                    other.gameObject.SetActive(false);
-                }
-                //Blocks the players path if they don't have the egg power up
                 break;
 
             //////////////////////// POWERUPS ////////////////////////
