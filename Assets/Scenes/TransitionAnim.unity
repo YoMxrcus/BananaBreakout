@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 245408208}
   - component: {fileID: 245408207}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: TransitionGameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

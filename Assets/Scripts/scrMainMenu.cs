@@ -31,6 +31,6 @@ public class scrMainMenu : MonoBehaviour
     }
     public void Nextbtn()
     {
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene("TransitionAnim");
     }
 }
