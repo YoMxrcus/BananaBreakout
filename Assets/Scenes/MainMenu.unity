@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 008b88f5989100244b1b0733fecc4c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
 --- !u!4 &9956286
 Transform:
   m_ObjectHideFlags: 0
@@ -1828,6 +1829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e449dc3d9ce93d54b94ec1f0bb8e7f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panTransition: {fileID: 0}
 --- !u!4 &2074418947
 Transform:
   m_ObjectHideFlags: 0
