@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scrEnemyScript : MonoBehaviour
+public class scrGorilla: MonoBehaviour
 {
     #region Public Variables
     public Transform rayCast;
@@ -91,8 +91,8 @@ public class scrEnemyScript : MonoBehaviour
         anim.SetFloat("Speed", 0.1f); 
 
             Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
-
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime); transform.rotation = Quaternion.Euler(0, 180, 0);
+            
     }
 
     void Attack()
