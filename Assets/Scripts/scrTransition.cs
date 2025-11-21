@@ -3,24 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class scrTransition : MonoBehaviour
 {
-    public int level = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
-        if(level > 0)
-        {
-            Invoke("LoadLevel2", 5);
-        }
-        else
-        {
-            Invoke("LoadLevel1", 5);
-            level++;
-        }
-
-    }
-    void Update()
-    {
-
+        Invoke("LoadLevelUno", 5);
     }
     public void startBtn()
     {
