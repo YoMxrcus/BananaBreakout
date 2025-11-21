@@ -269,6 +269,7 @@ public class scrPlayer : MonoBehaviour
             case "Bongos":
                 //Gives player max stamina for 15 seconds
                 //sound.PlayOneShot(monkeySound1);
+                sound.PlayOneShot(monkeySound1);
 
                 bongo++;
                 UpdateData();

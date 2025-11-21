@@ -4877,7 +4877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &373566021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9377,7 +9377,7 @@ RectTransform:
   m_Father: {fileID: 74122158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.433, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -22295,9 +22295,9 @@ MonoBehaviour:
   monkeySound2: {fileID: 8300000, guid: 47eb34b61898f5743a62f83cb4c0453d, type: 3}
   monkeySound3: {fileID: 8300000, guid: da143bb8dbf14be48959d845ea562365, type: 3}
   monkeySound4: {fileID: 8300000, guid: c288806c20def2d40a1fa32f2676d99e, type: 3}
-  eggSound: {fileID: 0}
-  bananaSound: {fileID: 0}
-  bongoSound: {fileID: 0}
+  eggSound: {fileID: 8300000, guid: 930cdb8b7fda8984d959eda2a485c462, type: 3}
+  bananaSound: {fileID: 8300000, guid: cf89ce3f824ba6947b9f035a9549f67b, type: 3}
+  bongoSound: {fileID: 8300000, guid: a80663cec4e30154c9a40f205300ba5b, type: 3}
   panPause: {fileID: 37660190}
   gameOver: {fileID: 1358637000}
   anim: {fileID: 1655005750}
