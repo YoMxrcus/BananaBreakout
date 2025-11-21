@@ -238,6 +238,10 @@ public class scrPlayer : MonoBehaviour
                 Time.timeScale = 0;
                 SceneManager.LoadScene("win");
                 break;
+            case "Finish2":
+                Time.timeScale = 0;
+                SceneManager.LoadScene("EndOfGame");
+                break;
 
             //////////////////////// HAZARDS ////////////////////////
 

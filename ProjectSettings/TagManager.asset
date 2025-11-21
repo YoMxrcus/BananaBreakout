@@ -15,6 +15,7 @@ TagManager:
   - Dart
   - Bongos
   - ThornWalls
+  - Finish2
   layers:
   - Default
   - TransparentFX

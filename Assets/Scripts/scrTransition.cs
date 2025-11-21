@@ -39,4 +39,8 @@ public class scrTransition : MonoBehaviour
         panTransition.SetActive(true);
         Invoke("LoadLevel2", 5);
     }
+    public void BackBtn()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
