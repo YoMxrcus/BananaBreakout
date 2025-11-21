@@ -3,15 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class scrMainMenu : MonoBehaviour
 {
-    public AudioSource sound;
-    public AudioClip bgMusic;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        sound.PlayOneShot(bgMusic);
-    }
-
     // Update is called once per frame
     void Update()
     {

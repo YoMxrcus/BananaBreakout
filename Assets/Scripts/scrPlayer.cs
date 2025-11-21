@@ -308,6 +308,19 @@ public class scrPlayer : MonoBehaviour
                 //Increases players health by 10 if they're not at 100 already
                 UpdateData();
                 break;
+
+            case "Dart":
+                if (!isInvincible)
+                {
+                    Destroy(other.gameObject);
+                    lives--;
+                }
+                UpdateData();
+                if (lives == 0)
+                {
+                    HandleGameOver();
+                }
+                break;
         }
     }
 }

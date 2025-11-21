@@ -11,144 +11,50 @@ public class scrPoacher: MonoBehaviour
     public float attackDistance; //Minimum distance
     public float moveSpeed;
     public float timer; //Cooldown of attacks
-    public GameObject dart;
+    public GameObject Dart;
+    public Transform dartPos;
     #endregion
 
     #region Private Variables
-    private RaycastHit2D hit;
-    private GameObject target;
-    //private Animator animator;
-    private float distance; //store distance between enemy and player
-    private bool attackMode;
-    private bool inRange; //See if player in range
-    private bool cooling; //check if enemy is cooling after attack
-    private float intTimer;
+    private GameObject player;
+    private Animator animator;
+
     #endregion 
 
-    void Awake()
+    void Start()
     {
-        intTimer = timer;
-        //animator = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (inRange)
-        {
-            hit = Physics2D.Raycast(rayCast.position, Vector2.left, rayCastLength, raycastMask);
-            RaycastDebugger();
-        }
 
-        //When player is detected
-        if (hit.collider != null)
-        {
-            EnemyLogic();
-        }
-        else if (hit.collider == null)
-        {
-            inRange = false;
-        }
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        Debug.Log(distance);
 
-        if (inRange == false)
+        if (distance < 10)
         {
-            //animator.SetBool("Run", false);
-            StopAttack();
+            timer += Time.deltaTime;
+            animator.SetBool("Attack", true);
+            //animator.SetBool("isAttacking", false);
+
+            if (timer > 2)
+            {
+                timer = 0;
+                shoot();
+            }
+        }
+        else
+        {
+            animator.SetBool("Attack", false);
+
         }
     }
-
-    void OnTriggerEnter2D(Collider2D trig)
+    void shoot()
     {
-        if (trig.gameObject.tag == "Player")
-        {
-            target = trig.gameObject;
-            inRange = true;
-        }
-    }
-
-    void EnemyLogic()
-    {
-        distance = Vector2.Distance(transform.position, target.transform.position);
-
-        if (distance > attackDistance)
-        {
-            Move();
-            StopAttack();
-        }
-        else if (attackDistance >= distance && cooling == false)
-        {
-            Attack();
-        }
-
-        if (cooling)
-        {
-            Cooldown();
-            //animator.SetBool("Attack", false);
-        }
-    }
-
-    void Move()
-    {
-        //animator.SetBool("Run", true); 
-
-        Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-    }
-
-    void Attack()
-    {
-        timer = intTimer;
-        attackMode = true;
-
-        Vector2 pos = new Vector2(transform.position.x, transform.position.y);
-        GameObject instance = Instantiate(dart, pos, Quaternion.Euler(0, 0, 0));
-
-        if (timer % 10 == 0)
-        { /*LaunchProjectile();*/ }
-        //animator.SetBool("Run", false);
-        //animator.SetBool("Attack", true);
-    }
-    void LaunchProjectile()
-    {   //instantiates a projectile prefab
-        GameObject instance = Instantiate(dart, transform.position, Quaternion.identity);
-        instance.GetComponent<scrProjectile>().direction = 0;
-        instance.GetComponent<scrProjectile>().target = GameObject.Find("Player").transform;
-        //Uses GetComponent to get certain direction from the projectile script
-    }
-
-    void Cooldown()
-    {
-        timer -= Time.deltaTime;
-
-        if (timer <= 0 && cooling && attackMode)
-        {
-            cooling = false;
-            timer = intTimer;
-        }
-    }
-
-    void StopAttack()
-    {
-        cooling = false;
-        attackMode = false;
-        //animator.SetBool("Attack", false);
-    }
-
-    void RaycastDebugger()
-    {
-        if (distance > attackDistance)
-        {
-            Debug.DrawRay(rayCast.position, Vector2.left * rayCastLength, Color.red);
-        }
-        else if (attackDistance > distance)
-        {
-            Debug.DrawRay(rayCast.position, Vector2.left * rayCastLength, Color.green);
-        }
-    }
-
-    public void TriggerCooling()
-    {
-        cooling = true;
+        Instantiate(Dart, dartPos.position, Quaternion.identity);
+        animator.SetBool("isAttacking", true);
     }
 }
