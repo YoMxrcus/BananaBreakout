@@ -4543,9 +4543,8 @@ MonoBehaviour:
   attackDistance: 0
   moveSpeed: 0
   timer: 0
-  dart: {fileID: 0}
-  pointA: {fileID: 1134205566}
-  pointB: {fileID: 1278762699}
+  startPos: {fileID: 0}
+  endPos: {fileID: 0}
 --- !u!4 &406052796 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6884834700220124289, guid: c39f423b1cfb8794aaff2237500c776b, type: 3}
@@ -21687,7 +21686,7 @@ MonoBehaviour:
   attackDistance: 0
   moveSpeed: 0
   timer: 0
-  dart: {fileID: 3243475491331786118, guid: 8a8c295a1993c2341937cbbf0f06dbd4, type: 3}
+  dart: {fileID: -7178615899162201487, guid: c6a0d1de1120dd04382d11610603481a, type: 3}
   dartPos: {fileID: 689983803}
 --- !u!136 &2098487754
 CapsuleCollider:
