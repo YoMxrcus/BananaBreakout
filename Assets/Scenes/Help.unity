@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -57, y: -135}
+  m_AnchoredPosition: {x: 64, y: -84}
   m_SizeDelta: {x: 177.7223, y: 100.8209}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &213383339
@@ -176,16 +176,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use a/d to move left and right
-
-    Use Space to Jump
-
-    Use q (Egg
-    for invincibility) | w (Banana for health) | e | r
-
-    Run through the jungle
-    using slingshots to go faster and avoid the different obstacles to get to the
-    end'
+  m_text: "Use a/d to move left and right\nUse Space to Jump\nUse q (is the banana,
+    it gives you lives\n  | w(is the egg and it gives you stamina) \n | e(is the
+    bongos,it gives invincibility | \nRun through the jungle using slingshots to
+    go faster and avoid the different obstacles to get to the end"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0a96bbed1569000469285430ab09a64f, type: 2}
   m_sharedMaterial: {fileID: -3903742912623709674, guid: 0a96bbed1569000469285430ab09a64f, type: 2}
