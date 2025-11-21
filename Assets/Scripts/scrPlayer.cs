@@ -155,6 +155,7 @@ public class scrPlayer : MonoBehaviour
     public void Paused()
     {
         panPause.SetActive(true);
+        Time.timeScale = 0f;
     }
     public void GameOver()
     {
@@ -163,6 +164,7 @@ public class scrPlayer : MonoBehaviour
     public void Resume()
     {
         panPause.SetActive(false);
+        Time.timeScale = 1f;
     }
     public void Restart()
     {
@@ -235,6 +237,10 @@ public class scrPlayer : MonoBehaviour
             case "Finish":
                 Time.timeScale = 0;
                 SceneManager.LoadScene("win");
+                break;
+            case "Finish2":
+                Time.timeScale = 0;
+                SceneManager.LoadScene("EndOfGame");
                 break;
 
             //////////////////////// HAZARDS ////////////////////////

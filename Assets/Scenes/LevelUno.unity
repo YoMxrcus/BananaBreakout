@@ -1097,8 +1097,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1655005747}
+        m_TargetAssemblyTypeName: scrPlayer, Assembly-CSharp
         m_MethodName: MainMenuBtn
         m_Mode: 1
         m_Arguments:
@@ -2289,8 +2289,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1655005747}
+        m_TargetAssemblyTypeName: scrPlayer, Assembly-CSharp
         m_MethodName: QuitBtn
         m_Mode: 1
         m_Arguments:
@@ -6177,8 +6177,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1655005747}
+        m_TargetAssemblyTypeName: scrPlayer, Assembly-CSharp
         m_MethodName: Paused
         m_Mode: 1
         m_Arguments:
@@ -12242,8 +12242,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1655005747}
+        m_TargetAssemblyTypeName: scrPlayer, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
