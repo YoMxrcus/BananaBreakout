@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class scrPoacher: MonoBehaviour
@@ -13,6 +14,8 @@ public class scrPoacher: MonoBehaviour
     public float timer; //Cooldown of attacks
     public GameObject Dart;
     public Transform dartPos;
+    public AudioSource sound;
+    public AudioClip huntingRilfeShot;
     #endregion
 
     #region Private Variables
@@ -56,5 +59,11 @@ public class scrPoacher: MonoBehaviour
     {
         Instantiate(Dart, dartPos.position, Quaternion.identity);
         animator.SetBool("isAttacking", true);
+        sound.PlayOneShot(huntingRilfeShot);
+        Invoke("StopShoot", 2f);
+    }
+    void StopShoot()
+    {
+        sound.Stop();
     }
 }
