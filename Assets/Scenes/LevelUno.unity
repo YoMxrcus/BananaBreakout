@@ -19008,6 +19008,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2137348081}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1503708936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1503708937}
+  m_Layer: 0
+  m_Name: PoacherManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1503708937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503708936}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.2245674, y: -2.0390043, z: -0.07882433}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2098487756}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1521362915 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1058312190006243720, guid: fe4253670f9f9ea4d8245c9a87f88080, type: 3}
@@ -26894,7 +26926,7 @@ GameObject:
   - component: {fileID: 2098487753}
   - component: {fileID: 2098487757}
   m_Layer: 0
-  m_Name: poacher3
+  m_Name: poacher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27008,13 +27040,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098487752}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.065, y: -3.52, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.8404322, y: -1.4809957, z: 0.07882433}
   m_LocalScale: {x: 0.57574, y: 0.57574, z: 0.57574}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 689983803}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1503708937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2098487757
 Animator:
@@ -27826,7 +27858,7 @@ SceneRoots:
   - {fileID: 238310124}
   - {fileID: 189024748}
   - {fileID: 1655005748}
-  - {fileID: 2098487756}
   - {fileID: 1499781344}
   - {fileID: 1632580523}
   - {fileID: 158113027}
+  - {fileID: 1503708937}
