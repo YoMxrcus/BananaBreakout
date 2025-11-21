@@ -4893,6 +4893,7 @@ MonoBehaviour:
   txtPlayerHealth: {fileID: 0}
   txtEggs: {fileID: 0}
   txtBanana: {fileID: 0}
+  txtBongo: {fileID: 0}
   isInvincible: 0
   currentPowerUp: 
 --- !u!4 &1986048154 stripped
@@ -5773,6 +5774,10 @@ PrefabInstance:
       propertyPath: panPause
       value: 
       objectReference: {fileID: 1067598432}
+    - target: {fileID: 58382305865356317, guid: 26701968be71c804696b04029db99e57, type: 3}
+      propertyPath: txtBongo
+      value: 
+      objectReference: {fileID: 734764004}
     - target: {fileID: 58382305865356317, guid: 26701968be71c804696b04029db99e57, type: 3}
       propertyPath: txtBanana
       value: 
