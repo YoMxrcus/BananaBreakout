@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class scrCrocodile : MonoBehaviour
 {
@@ -12,22 +13,14 @@ public class scrCrocodile : MonoBehaviour
     public float attackDistance; //Minimum distance
     public float moveSpeed;
     public float timer; //Cooldown of attacks
-    public GameObject dart;
-    public GameObject pointA;
-    public GameObject pointB;
+    public Transform startPos;
+    public Transform endPos;
+    bool endGoal = false;
     #endregion
 
     #region Private Variables
-    private RaycastHit2D hit;
     private Rigidbody2D rb;
-    private GameObject target;
     private Animator animator;
-    private float distance; //store distance between enemy and player
-    private bool attackMode;
-    private bool inRange; //See if player in range
-    private bool cooling; //check if enemy is cooling after attack
-    private float intTimer;
-    private Transform currentPoint;
     #endregion 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,39 +28,37 @@ public class scrCrocodile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        currentPoint = pointB.transform;
         animator.SetBool("isRunning", true);
+        transform.position = startPos.transform.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 point = currentPoint.position = transform.position;
-        if (currentPoint == pointB.transform)
+        if (transform.position == startPos.transform.position)
         {
-            rb.linearVelocity = new Vector2(moveSpeed, 0);
+            transform.rotation = Quaternion.Euler(0, 0, 0); endGoal = false;
+        }
+        else if (transform.position == endPos.transform.position)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0); endGoal = true;
+        }
+        if (!endGoal)
+        {
+            GoToEnd();
         }
         else
         {
-            rb.linearVelocity = new Vector2(-moveSpeed, 0);
-        }
-
-        if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointB.transform)
-        {
-            currentPoint = pointA.transform;
-        }
-
-        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointA.transform)
-        {
-            currentPoint = pointB.transform;
+            GoToStart();
         }
     }
-
-    private void OnDrawGizmos()
+    void GoToEnd()
     {
-        Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
-        Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
-        Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);
+        transform.position = Vector2.MoveTowards(transform.position, endPos.transform.position, .01f);
     }
-
+    void GoToStart()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, startPos.transform.position, .01f);
+    }
 }
