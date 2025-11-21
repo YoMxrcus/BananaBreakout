@@ -9,11 +9,13 @@ public class scrTransition : MonoBehaviour
     void Start()
     {
         panTransition.SetActive(false);
+        Time.timeScale = 1.0f;
     }
     public void startBtn()
     {
         panTransition.SetActive(true);
-        Invoke("LoadLevel1", 5);
+        Debug.Log("Start");
+        Invoke("LoadLevelOne", 5);
     }
     public void nextBtn()
     {
@@ -21,11 +23,13 @@ public class scrTransition : MonoBehaviour
 
     }
 
-    public void LoadLevel1()
+    public void LoadLevelOne()
     {
+        Debug.Log("Load");
         SceneManager.LoadScene("LevelUno");
-
+        Debug.Log("Loaded");
     }
+
     public void LoadLevel2()
     {
         SceneManager.LoadScene("Level2");
