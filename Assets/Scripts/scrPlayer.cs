@@ -24,17 +24,14 @@ public class scrPlayer : MonoBehaviour
     public Animator anim;
     int eggs;
     int banana;
-    public TMP_Text txtPlayerHealth;
-    public TMP_Text txtEggs;
-    public TMP_Text txtBanana;
+    int bongo;
+    public TMP_Text txtPlayerHealth, txtEggs, txtBanana, txtBongo;
     public bool isInvincible = false;
     bool isLeft;
 
 
     //Powerup detection variables
     public string currentPowerUp = "";
-    bool isPoweredUp = false;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -64,14 +61,14 @@ public class scrPlayer : MonoBehaviour
         {
             rb.AddForce((new Vector2(0.0f, 250)) * 1.5f);
             Debug.Log("Jump");
-            
+
         }
         if (stamina >= 100f)
         {
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
                 if (isLeft)
-                { 
+                {
                     transform.rotation = Quaternion.Euler(0, 180, 0);
                     rb.AddForce((new Vector2(-200.0f, 0.0f)) * 1.5f);
                     stamina = 0; UpdateData();
@@ -82,7 +79,7 @@ public class scrPlayer : MonoBehaviour
                     rb.AddForce((new Vector2(200, 0.0f)) * 1.5f);
                     stamina = 0; UpdateData();
                 }
-               
+
             }
         }
         if (stamina < 100)
@@ -90,11 +87,11 @@ public class scrPlayer : MonoBehaviour
 
 
         if (Input.GetKeyDown(KeyCode.A))
-        { transform.rotation = Quaternion.Euler(0, 180, 0); isLeft = true;}
+        { transform.rotation = Quaternion.Euler(0, 180, 0); isLeft = true; }
 
         if (Input.GetKeyDown(KeyCode.D))
-        { transform.rotation = Quaternion.Euler(0, 0, 0); isLeft = false;}
-        
+        { transform.rotation = Quaternion.Euler(0, 0, 0); isLeft = false; }
+
 
         // Movement Animations
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
@@ -112,23 +109,32 @@ public class scrPlayer : MonoBehaviour
                 UpdateData();
             }
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             if (eggs > 0)
             {
                 eggs--;
-                isInvincible = true;
+                stamina = 100;
                 UpdateData();
-                Invoke("EndInvincibility", 5f);
+
+
             }
-            
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (bongo > 0)
+            {
+                bongo--;
+                isInvincible = true; Invoke("EndInvincibility", 5f);
+                UpdateData();
+            }
         }
     }
         void OnCollisionStay2D(Collision2D collision)
         {
             canJump = true;
         }
-    void OnCollisionExit2D(Collision2D collision)
+        void OnCollisionExit2D(Collision2D collision)
         {
             canJump = false;
         }
@@ -145,6 +151,7 @@ public class scrPlayer : MonoBehaviour
             sound.PlayOneShot(slingshotSound);
             canMove = true;
         }
+   
     public void Paused()
     {
         panPause.SetActive(true);
@@ -184,6 +191,7 @@ public class scrPlayer : MonoBehaviour
         txtPlayerHealth.text = "X: " + lives;
         txtEggs.text = "" + eggs;
         txtBanana.text = "" + banana;
+        txtBongo.text = "" + bongo;
         staminaBar.value = stamina;
     }
     
@@ -266,15 +274,6 @@ public class scrPlayer : MonoBehaviour
 
             //////////////////////// POWERUPS ////////////////////////
 
-            case "Durian":
-                //Increases players damage by 10
-                if (!isPoweredUp)
-                {
-                    isPoweredUp = true;
-                    currentPowerUp = "Durian";
-                    playerDamage += 1;
-                }
-                break;
 
             case "Eggs":
                 //Increases players damage by 30
@@ -283,22 +282,16 @@ public class scrPlayer : MonoBehaviour
                 eggs++;
                 UpdateData();
                 Destroy(other.gameObject);
-                /*if (!isPoweredUp)
-                {
-                    isPoweredUp = true;
-                    currentPowerUp = "Eggs";
-                    playerDamage += 1;
-                }
-                */
+             
                 break;
 
             case "Bongos":
                 //Gives player max stamina for 15 seconds
-                if (!isPoweredUp)
-                {
-                    isPoweredUp = true;
-                    currentPowerUp = "Bongos";
-                }
+                //sound.PlayOneShot(monkeySound1);
+
+                bongo++;
+                UpdateData();
+                Destroy(other.gameObject);
                 break;
 
             case "Banana":

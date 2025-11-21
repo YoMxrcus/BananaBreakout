@@ -13,6 +13,7 @@ TagManager:
   - DroppedSpike
   - Wall
   - Dart
+  - Bongos
   layers:
   - Default
   - TransparentFX
